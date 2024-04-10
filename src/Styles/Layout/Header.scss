@@ -1,0 +1,38 @@
+.HeaderSearch {
+  border: 1px solid rgba($color: #000000, $alpha: 0.2);
+  border-radius: 8px;
+  .ant-input {
+    border: none;
+    padding: 8px 11px;
+  }
+  .ant-btn {
+    width: 60px;
+    border: none;
+    .anticon {
+      font-size: 1.4rem;
+    }
+  }
+}
+.HeaderBtn {
+  background-color: var(--secondary-color);
+  margin-right: 25px;
+  .anticon {
+    color: var(--primary-color);
+  }
+}
+.HeaderAcc {
+  .HeaderAccImg {
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .HeaderAccName {
+    font-size: 0.8rem;
+    color: var(--text-primary-color);
+  }
+  .HeaderAccRole {
+    font-size: 0.6rem;
+    color: var(--text-secondary-color);
+  }
+}

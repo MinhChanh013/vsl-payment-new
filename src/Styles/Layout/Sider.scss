@@ -1,0 +1,47 @@
+.SiderWrapper {
+  padding: 20px 10px;
+}
+.SiderTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0px;
+  img {
+    width: 63px;
+    padding-bottom: 4px;
+  }
+  .SiderTitle {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+.SiderMenu {
+  background-color: transparent;
+  padding-left: 30px;
+  .ant-menu-item {
+    margin: 20px 0px;
+    font-size: 1.1rem;
+    color: var(--text-primary-color);
+    height: 56px;
+    .anticon {
+      font-size: 1.4rem;
+    }
+  }
+  .ant-menu-item-selected {
+    position: relative;
+    overflow: hidden;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: -10px;
+    //   width: 7px;
+    //   height: 56px;
+    //   background-color: red;
+    // }
+  }
+}
