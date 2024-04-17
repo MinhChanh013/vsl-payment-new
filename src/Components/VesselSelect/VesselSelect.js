@@ -7,13 +7,12 @@ import React, {
   useRef,
   useState,
 } from "react";
-
 import { textEditor } from "react-data-grid";
 import DataGrid, { columnTypes } from "../DataGrid";
-import "./vessel-select.scss";
 import dayjs from "dayjs";
 import { FORMAT_DATETIME } from "../../constants";
 
+import "../../Styles/VesselSelect/VesselSelect.scss";
 const { Text } = Typography;
 
 const VesselButton = ({ children, onClick }) => (

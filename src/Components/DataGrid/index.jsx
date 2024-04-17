@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-
+import "../../Styles/ReactGrid/custom.scss";
 import { Pagination } from "antd";
 import ReactDataGrid, { SelectColumn, textEditor } from "react-data-grid";
 import { renderCellEditDatePicker } from "./renderCellEditDatePicker";
@@ -235,7 +235,7 @@ const DataGrid = forwardRef(
       <>
         <ReactDataGrid
           ref={reactDataGridRef}
-          className={`rdg-light ${className} ${
+          className={`rdg-light b-table ${className} ${
             pagination === "scroll" ? "fill-grid" : ""
           }`}
           style={{

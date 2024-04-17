@@ -1,4 +1,4 @@
-import { Card, Col, Form, Row } from "antd";
+import { Card, Col, Form, Row, Divider, Typography, Flex, Input } from "antd";
 import dayjs from "dayjs";
 import * as React from "react";
 import DataGrid, {
@@ -7,9 +7,12 @@ import DataGrid, {
   selectionTypes,
 } from "../../Components/DataGrid/index.jsx";
 import { Filter, filterType } from "../../Components/Fillter";
-import VesselSelect from "../../Components/VesselSelect/VesselSelect.js";
 import ToolBar, { toolBarButtonTypes } from "../../Components/ToolbarButton";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
+import Statistic from "../../Components/Statistic/index.js";
+
+const { Title } = Typography;
+const { Search } = Input;
 
 const SearchTransaction = () => {
   const onFocus = () => {};
@@ -18,6 +21,12 @@ const SearchTransaction = () => {
   const [rows, setRows] = React.useState([]);
   const [dataViewsels, setDataViewsels] = React.useState([]);
   const [form] = Form.useForm();
+
+  const buttonConfirm = () => {}; // Action cua cac button
+  const handleLoadData = () => {}; // xu ly nap ddu lieu
+  const handleExport = () => {}; // xu ly xuat excel
+
+  const number = 24;
   const columns = basicRenderColumns([
     {
       key: "ID",
@@ -153,194 +162,240 @@ const SearchTransaction = () => {
       type: columnTypes.TextEditor,
     },
   ]);
-  const buttonConfirm = () => {};
-  const handleLoadData = () => {};
+
+  const LIST_STATISTIC = [
+    {
+      label: "Số lượng giao dịch (VSL)",
+      value: 24,
+    },
+    {
+      label: "Số lượng giao dịch (NH)",
+      value: 24,
+    },
+    {
+      label: "Số lượng giao dịch cân khớp",
+      value: 24,
+    },
+    {
+      label: "Số lượng giao dịch thừa cảng",
+      value: 24,
+    },
+    {
+      label: "Số lượng giao dịch thùa NH",
+      value: 24,
+    },
+  ];
   return (
     <>
-      <Row
-        gutter={[8, 8]}
-        style={{ marginTop: "8px", marginLeft: "4px", marginRight: "4px" }}
-      >
-        <Col span={7}>
-          <Card
-            title={"[366.8] \r\n GỬI GETIN CONTAINER"}
-            style={{ borderRadius: "0px", height: "100%" }}
-            className="b-card"
-          >
-            <Row className="b-row" gutter={[16, 16]}>
-              <Col span={24}>
-                <VesselSelect ref={vesselSelectRef} data={dataViewsels} />
-              </Col>
-              <Col span={24}>
-                <Filter
-                  form={form}
-                  items={[
-                    {
-                      type: filterType.radio,
-                      label: "Hướng",
-                      config: {
-                        name: "imextype",
-                        defaultValue: "",
-                        options: [
-                          {
-                            label: "Tất cả",
-                            value: "",
-                          },
-                          {
-                            label: "Nhập",
-                            value: "1",
-                          },
-                          {
-                            label: "Xuất",
-                            value: "2",
-                          },
-                          {
-                            label: "Nội địa",
-                            value: "3",
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: filterType.radio,
-                      label: "Loại hàng",
-                      config: {
-                        name: "isLF",
-                        defaultValue: "",
-                        options: [
-                          {
-                            label: "Tất cả",
-                            value: "",
-                          },
-                          {
-                            label: "Hàng ngoại",
-                            value: "1",
-                          },
-                          {
-                            label: "Hàng nội",
-                            value: "2",
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: filterType.radio,
-                      label: "Trạng thái thông điệp",
-                      config: {
-                        name: "marker",
-                        defaultValue: "",
-                        options: [
-                          {
-                            label: "Tất cả",
-                            value: "",
-                          },
-                          {
-                            label: "Thành công",
-                            value: "SuccessMarker",
-                          },
-                          {
-                            label: "Thất bại",
-                            value: "ErrorMarker",
-                          },
-                          {
-                            label: "Chưa gửi",
-                            value: "UnMarker",
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: filterType.radio,
-                      label: "Trạng thái container ra khỏi cảng",
-                      config: {
-                        name: "getout",
-                        defaultValue: "",
-                        options: [
-                          {
-                            label: "Tất cả",
-                            value: "",
-                          },
-                          {
-                            label: "Chưa ra",
-                            value: "1",
-                          },
-                          {
-                            label: "Đã ra",
-                            value: "2",
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: filterType.radio,
-                      label: "Loại hàng",
-                      config: {
-                        name: "fe",
-                        defaultValue: "",
-                        options: [
-                          {
-                            label: "Tất cả",
-                            value: "",
-                          },
-                          {
-                            label: "Full",
-                            value: "1",
-                          },
-                          {
-                            label: "Empty",
-                            value: "0",
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: filterType.rangePicker,
-                      label: "Khoản",
-                      config: {
-                        name: "dateFromTo",
-                        placeholder: ["Từ", "Đến"],
-                        value: "",
-                      },
-                    },
-                    {
-                      type: filterType.input,
-                      label: "Số Cont",
-                      config: {
-                        defaultValue: "",
-                        name: "cntrNo",
-                        placeholder: "",
-                        value: "",
-                      },
-                    },
-                  ]}
-                />
-              </Col>
-            </Row>
-          </Card>
+      <Row>
+        <Col span={24}>
+          <Title level={3} style={{ margin: "12px" }}>
+            Tra cứu giao dịch
+          </Title>
         </Col>
-        <Col span={17}>
-          <Card className="main-card">
-            <ToolBar
-              buttonConfig={[
-                toolBarButtonTypes.load,
-                toolBarButtonTypes.send,
-                toolBarButtonTypes.cancelgetin,
-                toolBarButtonTypes.cancel,
-              ]}
-              handleConfirm={buttonConfirm}
-            />
-            <DataGrid
-              style={{ height: "80vh" }}
-              ref={gridRef}
-              direction="ltr"
-              columnKeySelected="ID"
-              selection={selectionTypes.single}
-              columns={columns}
-              rows={rows}
-              setRows={setRows}
-              onFocus={onFocus}
-            />
-          </Card>
+        <Col span={24}>
+          <Row
+            gutter={[8, 8]}
+            style={{ marginTop: "8px", marginLeft: "4px", marginRight: "4px" }}
+          >
+            <Col span={7}>
+              <Card
+                style={{ borderRadius: "0px", display: "flex" }}
+                className="b-card"
+              >
+                <Row className="b-row" gutter={[16, 16]}>
+                  <Col
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    span={24}
+                  >
+                    <ToolBar
+                      buttonConfig={[
+                        toolBarButtonTypes.load,
+                        toolBarButtonTypes.exportexcel,
+                      ]}
+                      handleConfirm={buttonConfirm}
+                    />
+                  </Col>
+                  <Divider
+                    style={{
+                      margin: "0px",
+                      color: "var(--red-color)",
+                      border: "var(--red-color)",
+                    }}
+                  >
+                    Lọc dữ liệu
+                  </Divider>
+                  <Col span={24}>
+                    <Filter
+                      form={form}
+                      items={[
+                        {
+                          type: filterType.dropdown,
+                          label: "Khách hàng",
+                          config: {
+                            name: "Customer",
+                            defaultValue: "",
+                            options: [
+                              {
+                                label: "Tất cả",
+                                value: "",
+                              },
+                              {
+                                label: "Gemadept",
+                                value: "1",
+                              },
+                              {
+                                label: "Ceh",
+                                value: "2",
+                              },
+                            ],
+                          },
+                        },
+                        {
+                          type: filterType.dropdown,
+                          label: "Hệ thống",
+                          config: {
+                            name: "System",
+                            defaultValue: "",
+                            options: [
+                              {
+                                label: "Tất cả",
+                                value: "",
+                              },
+                              {
+                                label: "MNR",
+                                value: "1",
+                              },
+                              {
+                                label: "CAS",
+                                value: "2",
+                              },
+                              {
+                                label: "VSL",
+                                value: "3",
+                              },
+                            ],
+                          },
+                        },
+                        {
+                          type: filterType.radio,
+                          label: "Cổng thanh toán",
+                          config: {
+                            name: "Portal",
+                            defaultValue: "",
+                            options: [
+                              {
+                                label: "Tất cả",
+                                value: "",
+                              },
+                              {
+                                label: "MB Bank",
+                                value: "MBB",
+                              },
+                              {
+                                label: "Thẻ nội địa",
+                                value: "Debit",
+                              },
+                            ],
+                          },
+                        },
+                        {
+                          type: filterType.radio,
+                          label: "Trạng thái giao dịch",
+                          config: {
+                            name: "Status",
+                            defaultValue: "",
+                            options: [
+                              {
+                                label: "Tất cả",
+                                value: "",
+                              },
+                              {
+                                label: "Gián đoạn",
+                                value: "MBB",
+                              },
+                              {
+                                label: "Thành công",
+                                value: "Debit",
+                              },
+                              {
+                                label: "Thất bại",
+                                value: "Fail",
+                              },
+                            ],
+                          },
+                        },
+                        {
+                          type: filterType.input,
+                          label: "Mã giao dịch",
+                          config: {
+                            defaultValue: "",
+                            name: "TransactionCode",
+                            placeholder: "Mã giao dịch",
+                            value: "",
+                          },
+                        },
+                        {
+                          type: filterType.rangePicker,
+                          label: "Ngày giao dịch",
+                          config: {
+                            name: "dateFromTo",
+                            placeholder: ["Từ ngày", "Đến ngày"],
+                            value: "",
+                          },
+                        },
+                      ]}
+                    />
+                  </Col>
+                  <Divider
+                    style={{
+                      margin: "0px",
+                      color: "#FF2626",
+                      border: "#FF2626",
+                    }}
+                  >
+                    Thống kê
+                  </Divider>
+                  <Col span={24}>
+                    <Statistic items={LIST_STATISTIC}></Statistic>
+                  </Col>
+                </Row>
+              </Card>
+            </Col>
+            <Col span={17} style={{ paddingLeft: "12px" }}>
+              <Card className="main-card">
+                <Flex
+                  align="center"
+                  justify="space-between"
+                  style={{ padding: "10px 20px" }}
+                >
+                  <Search
+                    size="large"
+                    placeholder="Tìm kiếm"
+                    className="HeaderSearch"
+                    style={{ width: "30%" }}
+                  ></Search>
+                  <Typography>Số dòng: 0</Typography>
+                </Flex>
+                <DataGrid
+                  ref={gridRef}
+                  direction="ltr"
+                  columnKeySelected="ID"
+                  selection={selectionTypes.multi}
+                  columns={columns}
+                  rows={rows}
+                  setRows={setRows}
+                  onFocus={onFocus}
+                  pagination={paginationTypes.scroll}
+                  limit={5}
+                />
+              </Card>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>

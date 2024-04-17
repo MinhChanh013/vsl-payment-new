@@ -11,11 +11,12 @@ export default function DefaultLayout() {
       <Sider width={"var(--width-sider)"} style={{ backgroundColor: "white" }}>
         <SiderCompoent />
       </Sider>
-      <Layout style={{ backgroundColor: "transparent" }}>
+      <Layout style={{ backgroundColor: "transparent", padding: "0px 20px 0px 15px" }}>
         <Header
           style={{
             backgroundColor: "transparent",
             height: "var(--height-header)",
+            padding: "0px 10px",
           }}
         >
           <HeaderCompoent />
@@ -23,7 +24,14 @@ export default function DefaultLayout() {
         <Content>
           <Outlet />
         </Content>
-        <Footer style={{ backgroundColor: "transparent" }}>
+        <Footer
+          style={{
+            backgroundColor: "transparent",
+            boxSizing: "border-box",
+            height: "var(--height-footer)",
+            padding: "12px"
+          }}
+        >
           <FooterCompoent />
         </Footer>
       </Layout>

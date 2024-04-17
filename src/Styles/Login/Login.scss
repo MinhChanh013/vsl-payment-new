@@ -1,0 +1,50 @@
+.LoginWrapper {
+  background-image: url("../../../public/Background.png");
+  height: 100vh;
+  background-size: cover;
+}
+.LoginLogo {
+  width: 120px;
+}
+.LoginName {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  //   color: red;
+}
+.LoginTitleHighline {
+  position: absolute;
+  top: -50px;
+  left: 95px;
+  width: 240px;
+}
+.LoginInfor {
+  background-color: var(--secondary-color);
+  color: var(icin d);
+  height: 50px;
+  font-size: 1.2rem;
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-within {
+    background-color: transparent;
+  }
+}
+.Col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  flex-direction: column;
+}
+.LoginButtonConfirm {
+  width: 100%;
+  height: 40px;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.LoginThumb {
+  width: 60%;
+}
