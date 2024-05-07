@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import "../src/assets/ReactGrid-css/custom.css";
 import "react-data-grid/lib/styles.css";
 
 import Router from "./Router";

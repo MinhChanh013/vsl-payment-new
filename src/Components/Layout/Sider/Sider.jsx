@@ -1,13 +1,13 @@
-import { Typography, Card, Row, Col, Menu } from "antd";
+import { Typography, Row, Col, Menu } from "antd";
 import {
-  HomeOutlined,
-  AlignLeftOutlined,
-  FileOutlined,
-  BarChartOutlined,
-  EditOutlined,
-  UserOutlined,
-  MessageOutlined,
-  WalletOutlined,
+  HomeFilled,
+  InteractionFilled,
+  FileFilled,
+  PieChartFilled,
+  SignalFilled,
+  CompassFilled,
+  MessageFilled,
+  WalletFilled,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "../../../Styles/Layout/Sider.scss";
@@ -17,49 +17,49 @@ const Sider = () => {
       key: "1",
       name: "dashboard",
       label: "Tổng quát",
-      icon: <HomeOutlined />,
+      icon: <HomeFilled />,
     },
     {
       key: "2",
       name: "searchTransaction",
       label: "Tra cứu giao dịch",
-      icon: <AlignLeftOutlined />,
+      icon: <InteractionFilled />,
     },
     {
       key: "3",
       name: "OrderReconcile",
       label: "Đối soát giao dịch",
-      icon: <FileOutlined />,
+      icon: <FileFilled />,
     },
     {
       key: "4",
       name: "Report",
       label: "Báo cáo đối soát",
-      icon: <BarChartOutlined />,
+      icon: <SignalFilled />,
     },
     {
       key: "5",
       name: "DebtAnalysis",
       label: "Thống kê công nợ",
-      icon: <EditOutlined />,
+      icon: <PieChartFilled />,
     },
     {
       key: "6",
       name: "Account",
       label: "Tài khoản",
-      icon: <UserOutlined />,
+      icon: <CompassFilled />,
     },
     {
       key: "7",
       name: "Help",
       label: "Hỗ trợ",
-      icon: <MessageOutlined />,
+      icon: <MessageFilled />,
     },
     {
       key: "8",
       name: "Wallet",
       label: "Ví V-wallet",
-      icon: <WalletOutlined />,
+      icon: <WalletFilled />,
     },
   ];
   const handleClick = () => {};

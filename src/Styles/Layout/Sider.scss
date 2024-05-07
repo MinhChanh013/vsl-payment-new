@@ -18,8 +18,10 @@
 }
 .SiderMenu {
   background-color: transparent;
-  padding-left: 30px;
+  padding-left: 20px;
   .ant-menu-item {
+    padding: 0px 12px;
+    width: calc(100% - 30px);
     margin: 20px 0px;
     font-size: 1.1rem;
     color: var(--text-primary-color);

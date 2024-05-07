@@ -13,7 +13,7 @@ export default function RadioGroupFilter({
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: "5px",
+        gap: "1px",
       }}
       onChange={(event) => formInstance.setFieldValue(name, event.target.value)}
     >
