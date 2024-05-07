@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       { path: "/searchTransaction", element: <SearchTransaction /> },
       { path: "/DebtAnalysis", element: <DebtAnalysis /> },
       { path: "/OrderReconcile", element: <OrderReconcile /> },
-      { path: "/Report", element: <SearchTransaction /> },
+      { path: "/Report", element: <Report /> },
     ],
   },
   { path: "/login", element: <Login /> },

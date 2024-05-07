@@ -16,31 +16,31 @@ const Sider = () => {
     {
       key: "1",
       name: "dashboard",
-      label: "Tổng quát",
+      label: <Link to={"/"}>Tổng quát</Link>,
       icon: <HomeFilled />,
     },
     {
       key: "2",
       name: "searchTransaction",
-      label: "Tra cứu giao dịch",
+      label: <Link to={"/SearchTransaction"}>Tra cứu giao dịch</Link>,
       icon: <InteractionFilled />,
     },
     {
       key: "3",
       name: "OrderReconcile",
-      label: "Đối soát giao dịch",
+      label: <Link to={"/OrderReconcile"}>Đối soát giao dịch</Link>,
       icon: <FileFilled />,
     },
     {
       key: "4",
       name: "Report",
-      label: "Báo cáo đối soát",
+      label: <Link to={"/Report"}>Báo cáo đối soát</Link>,
       icon: <SignalFilled />,
     },
     {
       key: "5",
       name: "DebtAnalysis",
-      label: "Thống kê công nợ",
+      label: <Link to={"/DebtAnalysis"}>Thống kê công nợ</Link>,
       icon: <PieChartFilled />,
     },
     {

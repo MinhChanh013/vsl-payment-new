@@ -18,17 +18,28 @@ import {
 import { useNavigate, Link } from "react-router-dom";
 import "../../Styles/Login/Login.scss";
 import { useState } from "react";
+import { auth } from "../../services";
 
 const { Title } = Typography;
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const handleSubmit = async (e) => {};
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    setIsLoading(true);
+    try {
+      const result = await auth.Login(e);
+      if (result) navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+    setIsLoading(false);
+  };
   return (
     <Row align={"middle"} justify={"center"} className="LoginWrapper">
       <Col className="Col" span={12}>
         <Row gutter={[0, 36]} style={{ width: "45%" }}>
           <Col className="Col" span={24} style={{ marginBottom: "30px" }}>
-            <img className="LoginLogo" src="./LOGO.png"></img>
+            <img className="LoginLogo" src="./LOGO.png" alt="Logo"></img>
             <Typography className="LoginName">
               VIETNAM SMARTHUB LOGISTICS
             </Typography>
@@ -48,7 +59,11 @@ const Login = () => {
             >
               cổng thanh toán
             </Title>
-            <img className="LoginTitleHighline" src="./highline.png"></img>
+            <img
+              className="LoginTitleHighline"
+              src="./highline.png"
+              alt="Highline"
+            ></img>
           </Col>
           <Col className="Col" span={24}>
             <Form
@@ -135,11 +150,15 @@ const Login = () => {
         </Row>
       </Col>
       <Col span={12}>
-        <Row gutter={[0,80]} align={"top"} justify={"center"}>
-          <Col className="Col">
-            <img className="LoginThumb" src="./Thumb.png"></img>
-          </Col>
-          <Col style={{ display: "flex"}}>
+        <Row gutter={[0, 80]} align={"top"} justify={"center"}>
+          <Col
+            span={24}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Title
               style={{
                 margin: "0px",
@@ -160,6 +179,14 @@ const Login = () => {
             >
               ayment portal
             </Title>
+          </Col>
+          <Col span={24} className="Col">
+            <img
+              style={{ width: "60%" }}
+              className="LoginThumb"
+              src="./Thumb.svg"
+              alt="Thumb"
+            ></img>
           </Col>
         </Row>
       </Col>
