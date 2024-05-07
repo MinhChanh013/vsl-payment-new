@@ -5,6 +5,7 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import "../../../Styles/Layout/Header.scss";
+import { Link } from "react-router-dom";
 const { Search } = Input;
 const Header = () => {
   const Avatar = "./avatar.jpg";
@@ -25,7 +26,7 @@ const Header = () => {
   const SETTING_ITEMS = [
     {
       key: "1",
-      label: "đăng suất",
+      label: <Link to="/login">đăng suất</Link>,
       icon: <LogoutOutlined />,
     },
   ];

@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import "../../Styles/ReactGrid/custom.scss";
+import "../../Styles/ReactGrid/ReactGrid.scss";
 import { Pagination } from "antd";
 import ReactDataGrid, { SelectColumn, textEditor } from "react-data-grid";
 import { renderCellEditDatePicker } from "./renderCellEditDatePicker";
