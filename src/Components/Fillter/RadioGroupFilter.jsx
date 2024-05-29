@@ -3,13 +3,13 @@ import { Form, Radio } from "antd";
 export default function RadioGroupFilter({
   options = [],
   name = "",
-  defaultValue,
+  initialValues,
 }) {
   const formInstance = Form.useFormInstance();
   return (
     <Radio.Group
       name={name}
-      defaultValue={defaultValue}
+      defaultValue={initialValues}
       style={{
         display: "flex",
         flexWrap: "wrap",

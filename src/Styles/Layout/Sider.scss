@@ -1,49 +1,78 @@
 .SiderWrapper {
-  padding: 20px 10px;
+  padding: 20px 0px;
 }
 .SiderTop {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0px;
+  margin: 20px 0px 14px 0px;
   img {
     width: 63px;
     padding-bottom: 4px;
   }
-  .SiderTitle {
-    color: var(--primary-color);
+  .SiderTitle_secondary {
+    color: $primary_color;
     font-size: 1rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+  .SiderTitle_primary {
+    color: $red_color;
+    padding-right: 6px;
+    font-size: 1rem;
+    letter-spacing: 3px;
     font-weight: 700;
   }
 }
 .SiderMenu {
   background-color: transparent;
-  padding-left: 20px;
-  .ant-menu-item {
-    padding: 0px 12px;
-    width: calc(100% - 30px);
-    margin: 20px 0px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  @mixin menu-item-style {
+    width: $width_menu_item;
+    border-left: 25px solid transparent;
+    margin: 8px 0px;
     font-size: 1.1rem;
-    color: var(--text-primary-color);
-    height: 56px;
+    color: $text_primary_color;
+    font-weight: 500;
+    height: 50px;
     .anticon {
       font-size: 1.4rem;
     }
   }
+  .ant-menu-item {
+    @include menu-item-style;
+  }
+  .ant-menu-sub {
+    box-shadow: inset 0px 3px 6px rgb(216, 216, 216) !important;
+  }
+
+  .ant-menu-submenu {
+    width: $width_menu_item;
+    .ant-menu-submenu-title {
+      @include menu-item-style;
+      width: 100%;
+    }
+    .ant-menu-item {
+      width: 100%;
+    }
+  }
   .ant-menu-item-selected {
-    position: relative;
-    overflow: hidden;
-    font-weight: 700;
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   top: 0;
-    //   left: -10px;
-    //   width: 7px;
-    //   height: 56px;
-    //   background-color: red;
-    // }
+    overflow: visible;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: $primary_color !important;
+    background-color: transparent;
+    ::before {
+      content: "";
+      width: 10px;
+      height: 100%;
+      background-color: $primary_color;
+      border-radius: 4px;
+      position: absolute;
+      left: -25px;
+      top: 0px;
+    }
   }
 }

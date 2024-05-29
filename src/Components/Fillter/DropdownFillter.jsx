@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Form, Dropdown, Flex, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-const DropdownFillter = ({ name = "", defaultvalue = "", options = [] }) => {
+const DropdownFillter = ({ name = "", initialValues = "", options = [] }) => {
   const items = () => {
     const result = [];
     options.map((item) => {

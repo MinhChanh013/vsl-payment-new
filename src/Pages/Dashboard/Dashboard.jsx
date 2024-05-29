@@ -20,7 +20,6 @@ import { UserOutlined } from "@ant-design/icons";
 import { Filter, filterType } from "../../Components/Fillter";
 import ToolBar, { toolBarButtonTypes } from "../../Components/ToolbarButton";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
-import "../../Styles/Dashboard/Dashboard.scss";
 import TransactionOverviewItem from "./TransactionOverviewItem.jsx";
 import VirtualList from "rc-virtual-list";
 

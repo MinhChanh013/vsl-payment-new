@@ -1,10 +1,10 @@
 import { Typography, Input, Row, Col, Dropdown, Button, Divider } from "antd";
+
 import {
   SettingOutlined,
   BellOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import "../../../Styles/Layout/Header.scss";
 import { Link } from "react-router-dom";
 const { Search } = Input;
 const Header = () => {
@@ -25,14 +25,18 @@ const Header = () => {
   ];
   const SETTING_ITEMS = [
     {
-      key: "1",
+      key: "logout",
       label: <Link to="/login">đăng suất</Link>,
       icon: <LogoutOutlined />,
     },
   ];
 
+  const onClick = ({ key }) => {
+    if (key === "logout") localStorage.clear("token");
+  };
+
   return (
-    <Row align="bottom" justify="space-between" style={{ height: "100%" }}>
+    <Row align="bottom" justify="space-between" style={{ blockSize: "100%" }}>
       <Col span={8} style={{ display: "flex" }}>
         <Search
           size="large"
@@ -47,9 +51,16 @@ const Header = () => {
         }}
       >
         <Dropdown menu={{ items }} placement="bottomRight">
-          <Button size="large" className="HeaderBtn" icon={<BellOutlined />} />
+          <Button
+            size="large"
+            className="HeaderBtn"
+            icon={<BellOutlined />}
+          />
         </Dropdown>
-        <Dropdown menu={{ items: SETTING_ITEMS }} placement="bottomRight">
+        <Dropdown
+          menu={{ items: SETTING_ITEMS, onclick }}
+          placement="bottomRight"
+        >
           <Button
             size="large"
             className="HeaderBtn"
@@ -58,10 +69,14 @@ const Header = () => {
         </Dropdown>
         <Divider
           type="vertical"
-          style={{ height: "30px", marginRight: "40px", marginLeft: "10px" }}
+          style={{
+            blockSize: "30px",
+            marginInlineEnd: "40px",
+            marginInlineStart: "10px",
+          }}
         />
         <Row align={"middle"} className="HeaderAcc">
-          <Col style={{ paddingRight: "10px" }}>
+          <Col style={{ paddingInlineEnd: "10px" }}>
             <Typography className="HeaderAccName">{Acc.name}</Typography>
             <Typography className="HeaderAccRole">{Acc.role}</Typography>
           </Col>

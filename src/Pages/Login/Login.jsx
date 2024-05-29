@@ -16,7 +16,6 @@ import {
   LoginOutlined,
 } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
-import "../../Styles/Login/Login.scss";
 import { useState } from "react";
 import { auth } from "../../services";
 
