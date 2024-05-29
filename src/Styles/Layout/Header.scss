@@ -14,10 +14,10 @@
   }
 }
 .HeaderBtn {
-  background-color: var(--secondary-color);
+  background-color: $secondary_color;
   margin-right: 25px;
   .anticon {
-    color: var(--primary-color);
+    color: $primary_color;
   }
 }
 .HeaderAcc {
@@ -29,10 +29,10 @@
   }
   .HeaderAccName {
     font-size: 0.8rem;
-    color: var(--text-primary-color);
+    color: $text_primary_color;
   }
   .HeaderAccRole {
     font-size: 0.6rem;
-    color: var(--text-secondary-color);
+    color: $text_sencodary_color;
   }
 }

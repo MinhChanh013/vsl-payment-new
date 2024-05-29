@@ -32,9 +32,9 @@ export const Filter = (
     form = null,
   }
 ) => {
-  const initValues = useMemo(() => {
+  const initialValues = useMemo(() => {
     const result = items.reduce((init, { config }) => {
-      init[config["name"]] = config["defaultValue"];
+      init[config["name"]] = config["initialValues"];
       return init;
     }, {});
 
@@ -42,8 +42,8 @@ export const Filter = (
   }, [items]);
 
   return (
-    <Form form={form} initialValues={initValues}>
-      <Row gutter={[0,16]} style={{ marginTop: "10px" }}>
+    <Form form={form} initialValues={initialValues}>
+      <Row gutter={[0, 16]} style={{ marginTop: "10px" }}>
         {items.map(({ type, label, config }, index) => {
           const Component = pickComponent(type);
           return (

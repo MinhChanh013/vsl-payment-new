@@ -9,7 +9,7 @@
 .LoginName {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-color);
+  color: $primary_color;
   //   color: red;
 }
 .LoginTitleHighline {
@@ -19,8 +19,8 @@
   width: 240px;
 }
 .LoginInfor {
-  background-color: var(--secondary-color);
-  color: var(icin d);
+  background-color: $secondary_color;
+  // color: var(icin d);
   height: 50px;
   font-size: 1.2rem;
   &:hover,
@@ -42,7 +42,7 @@
   height: 40px;
   font-weight: 600;
   color: white;
-  background-color: var(--primary-color);
+  background-color: $primary_color;
 }
 
 .LoginThumb {

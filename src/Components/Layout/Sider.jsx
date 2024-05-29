@@ -1,4 +1,4 @@
-import { Typography, Row, Col, Menu } from "antd";
+import { Typography, Row, Col, Menu, Flex } from "antd";
 import {
   HomeFilled,
   InteractionFilled,
@@ -10,53 +10,66 @@ import {
   WalletFilled,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import "../../../Styles/Layout/Sider.scss";
 const Sider = () => {
   const items = [
     {
-      key: "1",
+      key: "dashboard",
       name: "dashboard",
       label: <Link to={"/"}>Tổng quát</Link>,
       icon: <HomeFilled />,
     },
     {
-      key: "2",
+      key: "searchTransaction",
       name: "searchTransaction",
       label: <Link to={"/SearchTransaction"}>Tra cứu giao dịch</Link>,
       icon: <InteractionFilled />,
     },
     {
-      key: "3",
+      key: "OrderReconcile",
       name: "OrderReconcile",
       label: <Link to={"/OrderReconcile"}>Đối soát giao dịch</Link>,
       icon: <FileFilled />,
     },
     {
-      key: "4",
+      key: "Report",
       name: "Report",
       label: <Link to={"/Report"}>Báo cáo đối soát</Link>,
       icon: <SignalFilled />,
     },
     {
-      key: "5",
+      key: "DebtAnalysis",
       name: "DebtAnalysis",
       label: <Link to={"/DebtAnalysis"}>Thống kê công nợ</Link>,
       icon: <PieChartFilled />,
     },
     {
-      key: "6",
+      key: "Account",
       name: "Account",
       label: "Tài khoản",
       icon: <CompassFilled />,
+      children: [
+        {
+          key: "user",
+          label: <Link to={"/user"}>Người dùng</Link>,
+        },
+        {
+          key: "group",
+          label: <Link to={"/group"}>Nhóm người dùng</Link>,
+        },
+        {
+          key: "Delegation",
+          label: <Link to={"/permission"}>Phân quyền</Link>,
+        },
+      ],
     },
     {
-      key: "7",
+      key: "Help",
       name: "Help",
       label: "Hỗ trợ",
       icon: <MessageFilled />,
     },
     {
-      key: "8",
+      key: "Wallet",
       name: "Wallet",
       label: "Ví V-wallet",
       icon: <WalletFilled />,
@@ -68,9 +81,10 @@ const Sider = () => {
       <Col span={24}>
         <Link className="SiderTop" to={"/"}>
           <img src="./LOGO.png" />
-          <Typography className="SiderTitle">
-            VIETNAM SMARTHUB LOGISTICS
-          </Typography>
+          <Flex>
+            <Typography className="SiderTitle_primary">VSL</Typography>
+            <Typography className="SiderTitle_secondary">PAYMENT PORTAL</Typography>
+          </Flex>
         </Link>
       </Col>
       <Col span={24}>

@@ -1,5 +1,4 @@
 import { Typography } from "antd";
-import "../../../Styles/Layout/Footer.scss";
 const Footer = () => {
   return (
     <Typography style={{ textAlign: "center" }} className="Footer">
