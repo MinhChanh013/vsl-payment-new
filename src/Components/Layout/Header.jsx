@@ -7,7 +7,8 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 const { Search } = Input;
-const Header = () => {
+const { Title } = Typography;
+const Header = ({title}) => {
   const Avatar = "./avatar.jpg";
   const Acc = {
     name: "VDNAM",
@@ -36,26 +37,26 @@ const Header = () => {
   };
 
   return (
-    <Row align="bottom" justify="space-between" style={{ blockSize: "100%" }}>
-      <Col span={8} style={{ display: "flex" }}>
-        <Search
-          size="large"
-          placeholder="Tìm kiếm"
-          className="HeaderSearch"
-        ></Search>
+    <Row align="middle" justify="space-between" style={{ blockSize: "100%"}}>
+      <Col>
+        <Title level={4} style={{ margin: "0px" }}>
+          {title}
+        </Title>
       </Col>
       <Col
         style={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "center"
         }}
       >
+        <Search
+          size="large"
+          placeholder="Tìm kiếm"
+          className="HeaderSearch"
+        ></Search>
         <Dropdown menu={{ items }} placement="bottomRight">
-          <Button
-            size="large"
-            className="HeaderBtn"
-            icon={<BellOutlined />}
-          />
+          <Button size="large" className="HeaderBtn" icon={<BellOutlined />} />
         </Dropdown>
         <Dropdown
           menu={{ items: SETTING_ITEMS, onclick }}

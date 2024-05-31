@@ -37,8 +37,10 @@
 .b-card {
   border-radius: 0px;
   height: 100%;
+  box-shadow: 4px 4px 8px rgb(202, 202, 202);
+  display: flex;
   .ant-card-body {
-    padding: 10px 15px;
+    padding: 10px 8px;
   }
   .ant-card-head-title {
     text-align: center;
@@ -54,11 +56,12 @@
 }
 
 .main-card {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 160px);
   border-radius: 0px;
+  box-shadow: 4px 4px 8px rgb(202, 202, 202);
 
   .ant-card-body {
-    padding: 0px;
+    padding: 2px 0px 2px 12px;
     height: 100%;
   }
 }

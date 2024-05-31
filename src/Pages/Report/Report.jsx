@@ -185,9 +185,9 @@ const Report = () => {
   return (
     <Content
       type={"2-column"}
-      title={" Báo cáo đối soát"}
+      title={"BÁO CÁO ĐỐI SOÁT"}
       left={
-        <Row className="b-row" gutter={[16, 16]}>
+        <>
           <Col
             style={{
               display: "flex",
@@ -347,7 +347,7 @@ const Report = () => {
           <Col span={24}>
             <Statistic items={LIST_STATISTIC}></Statistic>
           </Col>
-        </Row>
+        </>
       }
     >
       <Flex
@@ -356,10 +356,9 @@ const Report = () => {
         style={{ padding: "10px 20px" }}
       >
         <Search
-          size="large"
           placeholder="Tìm kiếm"
           className="HeaderSearch"
-          style={{ width: "30%" }}
+          style={{ width: "24%" }}
         ></Search>
         <Typography>Số dòng: 0</Typography>
       </Flex>

@@ -189,9 +189,9 @@ const OrderReconcile = () => {
   return (
     <Content
       type={"2-column"}
-      title={"Đối soát giao dịch"}
+      title={"ĐỐI SOÁT GIAO DỊCH"}
       left={
-        <Row className="b-row" gutter={[16, 16]}>
+        <>
           <Col
             style={{
               display: "flex",
@@ -211,8 +211,8 @@ const OrderReconcile = () => {
           <Divider
             style={{
               margin: "0px",
-                      color: "var(--red-color)",
-                      border: "var(--red-color)",
+              color: "var(--red-color)",
+              border: "var(--red-color)",
             }}
           >
             Lọc dữ liệu
@@ -325,7 +325,7 @@ const OrderReconcile = () => {
           <Col span={24}>
             <Statistic items={LIST_STATISTIC}></Statistic>
           </Col>
-        </Row>
+        </>
       }
     >
       <Flex
@@ -334,10 +334,9 @@ const OrderReconcile = () => {
         style={{ padding: "10px 20px" }}
       >
         <Search
-          size="large"
           placeholder="Tìm kiếm"
           className="HeaderSearch"
-          style={{ width: "30%" }}
+          style={{ width: "24%" }}
         ></Search>
         <Typography>Số dòng: 0</Typography>
       </Flex>

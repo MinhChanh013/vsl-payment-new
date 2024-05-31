@@ -20,7 +20,7 @@ const SearchTransaction = () => {
   const gridRef = React.createRef();
   const [rows, setRows] = React.useState([]);
   const [form] = Form.useForm();
-
+  
   const buttonConfirm = () => {}; // Action cua cac button
   const handleLoadData = () => {}; // xu ly nap ddu lieu
   const handleExport = () => {}; // xu ly xuat excel
@@ -186,9 +186,9 @@ const SearchTransaction = () => {
   return (
     <Content
       type={"2-column"}
-      title={"Tra cứu giao dịch"}
+      title={"TRA CỨU GIAO DỊCH"}
       left={
-        <Row className="b-row" gutter={[16, 16]}>
+        <>
           <Col
             style={{
               display: "flex",
@@ -208,8 +208,8 @@ const SearchTransaction = () => {
           <Divider
             style={{
               margin: "0px",
-                      color: "var(--red-color)",
-                      border: "var(--red-color)",
+              color: "var(--red-color)",
+              border: "var(--red-color)",
             }}
           >
             Lọc dữ liệu
@@ -267,6 +267,25 @@ const SearchTransaction = () => {
                   },
                 },
                 {
+                  type: filterType.input,
+                  label: "Mã giao dịch",
+                  config: {
+                    initialValues: "",
+                    name: "TransactionCode",
+                    placeholder: "Mã giao dịch",
+                    value: "",
+                  },
+                },
+                {
+                  type: filterType.rangePicker,
+                  label: "Ngày giao dịch",
+                  config: {
+                    name: "dateFromTo",
+                    placeholder: ["Từ ngày", "Đến ngày"],
+                    value: "",
+                  },
+                },
+                {
                   type: filterType.radio,
                   label: "Cổng thanh toán",
                   config: {
@@ -314,25 +333,6 @@ const SearchTransaction = () => {
                     ],
                   },
                 },
-                {
-                  type: filterType.input,
-                  label: "Mã giao dịch",
-                  config: {
-                    initialValues: "",
-                    name: "TransactionCode",
-                    placeholder: "Mã giao dịch",
-                    value: "",
-                  },
-                },
-                {
-                  type: filterType.rangePicker,
-                  label: "Ngày giao dịch",
-                  config: {
-                    name: "dateFromTo",
-                    placeholder: ["Từ ngày", "Đến ngày"],
-                    value: "",
-                  },
-                },
               ]}
             />
           </Col>
@@ -348,7 +348,7 @@ const SearchTransaction = () => {
           <Col span={24}>
             <Statistic items={LIST_STATISTIC}></Statistic>
           </Col>
-        </Row>
+        </>
       }
     >
       <Flex
@@ -357,10 +357,9 @@ const SearchTransaction = () => {
         style={{ padding: "10px 20px" }}
       >
         <Search
-          size="large"
           placeholder="Tìm kiếm"
           className="HeaderSearch"
-          style={{ width: "30%" }}
+          style={{ width: "24%" }}
         ></Search>
         <Typography>Số dòng: 0</Typography>
       </Flex>
@@ -374,6 +373,7 @@ const SearchTransaction = () => {
         setRows={setRows}
         onFocus={onFocus}
         pagination={paginationTypes.scroll}
+        maxHeight={800}
         limit={5}
       />
     </Content>

@@ -53,11 +53,11 @@ const Sider = () => {
           label: <Link to={"/user"}>Người dùng</Link>,
         },
         {
-          key: "group",
-          label: <Link to={"/group"}>Nhóm người dùng</Link>,
+          key: "groupUser",
+          label: <Link to={"/groupuser"}>Nhóm người dùng</Link>,
         },
         {
-          key: "Delegation",
+          key: "permission",
           label: <Link to={"/permission"}>Phân quyền</Link>,
         },
       ],

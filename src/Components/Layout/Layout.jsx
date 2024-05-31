@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import FooterCompoent from "./Footer.jsx";
@@ -6,8 +7,9 @@ import SiderCompoent from "./Sider.jsx";
 import "../../Styles/Global.scss";
 const { Header, Footer, Sider, Content } = Layout;
 export default function DefaultLayout() {
+  const [title, setTitle] = useState("");
   return (
-    <Layout style={{ backgroundColor: "transparent", minHeight: "100vh" }}>
+    <Layout style={{ backgroundColor: "#e2e2e2", minHeight: "100vh" }}>
       <Sider width={"var(--width-sider)"} style={{ backgroundColor: "white" }}>
         <SiderCompoent />
       </Sider>
@@ -18,20 +20,20 @@ export default function DefaultLayout() {
           style={{
             backgroundColor: "transparent",
             height: "var(--height-header)",
-            padding: "0px 10px",
+            padding: "10px 10px",
           }}
         >
-          <HeaderCompoent />
+          <HeaderCompoent title={title}/>
         </Header>
         <Content>
-          <Outlet />
+          <Outlet context={[title, setTitle]}/>
         </Content>
         <Footer
           style={{
             backgroundColor: "transparent",
             boxSizing: "border-box",
             height: "var(--height-footer)",
-            padding: "12px"
+            padding: "12px",
           }}
         >
           <FooterCompoent />
