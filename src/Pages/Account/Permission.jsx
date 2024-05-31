@@ -188,7 +188,7 @@ const DebtAnalysis = () => {
   return (
     <Content
       type={"2-column"}
-      title={"THỐNG KÊ CÔNG NỢ"}
+      title={"PHÂN QUYỀN"}
       left={
         <>
           <Col
@@ -222,7 +222,7 @@ const DebtAnalysis = () => {
               items={[
                 {
                   type: filterType.dropdown,
-                  label: "Khách hàng",
+                  label: "Nhóm người dùng",
                   config: {
                     name: "Customer",
                     initialValues: "",
@@ -242,95 +242,6 @@ const DebtAnalysis = () => {
                     ],
                   },
                 },
-                {
-                  type: filterType.dropdown,
-                  label: "Hệ thống",
-                  config: {
-                    name: "System",
-                    initialValues: "",
-                    options: [
-                      {
-                        label: "Tất cả",
-                        value: "",
-                      },
-                      {
-                        label: "MNR",
-                        value: "1",
-                      },
-                      {
-                        label: "CAS",
-                        value: "2",
-                      },
-                      {
-                        label: "VSL",
-                        value: "3",
-                      },
-                    ],
-                  },
-                },
-                {
-                  type: filterType.radio,
-                  label: "Cổng thanh toán",
-                  config: {
-                    name: "Portal",
-                    initialValues: "",
-                    options: [
-                      {
-                        label: "Tất cả",
-                        value: "",
-                      },
-                      {
-                        label: "MB Bank",
-                        value: "MBB",
-                      },
-                      {
-                        label: "Thẻ nội địa",
-                        value: "Debit",
-                      },
-                    ],
-                  },
-                },
-                {
-                  type: filterType.radio,
-                  label: "Loại hình thanh toán",
-                  config: {
-                    name: "Type",
-                    initialValues: "",
-                    options: [
-                      {
-                        label: "Tất cả",
-                        value: "",
-                      },
-                      {
-                        label: "Thu ngay",
-                        value: "MBB",
-                      },
-                      {
-                        label: "Thu sau",
-                        value: "Debit",
-                      },
-                    ],
-                  },
-                },
-                {
-                  type: filterType.input,
-                  label: "Mã giao dịch",
-                  config: {
-                    initialValues: "",
-                    name: "TransactionCode",
-                    placeholder: "Mã giao dịch",
-                    value: "",
-                  },
-                },
-                {
-                  type: filterType.rangePicker,
-                  label: "Ngày giao dịch",
-                  config: {
-                    name: "dateFromTo",
-                    placeholder: ["Từ ngày", "Đến ngày"],
-                    value: "",
-                  },
-                },
               ]}
             />
           </Col>
@@ -341,11 +252,8 @@ const DebtAnalysis = () => {
               border: "#FF2626",
             }}
           >
-            Thống kê
+            Danh sách người dùng
           </Divider>
-          <Col span={24}>
-            <Statistic items={LIST_STATISTIC}></Statistic>
-          </Col>
         </>
       }
     >

@@ -5,8 +5,10 @@ import DataGrid, {
   paginationTypes,
   selectionTypes,
 } from "../../Components/DataGrid/index.jsx";
-import { Filter, filterType } from "../../Components/Fillter";
-import ToolBar, { toolBarButtonTypes } from "../../Components/ToolbarButton";
+import { Filter, filterType } from "../../Components/Fillter/index.jsx";
+import ToolBar, {
+  toolBarButtonTypes,
+} from "../../Components/ToolbarButton/index.js";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
 import Content from "../../Components/Layout/Content.jsx";
 
@@ -87,19 +89,25 @@ const User = () => {
   ]);
 
   return (
-    <Content type={"1-column"} title={"Quản lý người dùng"}>
+    <Content type={"1-column"} title={"QUẢN LÝ NGƯỜI DÙNG"}>
       <Flex
         align="center"
         justify="space-between"
         style={{ padding: "10px 20px" }}
       >
         <Search
-          size="large"
           placeholder="Tìm kiếm"
           className="HeaderSearch"
-          style={{ width: "30%" }}
+          style={{ width: "20%" }}
         ></Search>
-        <Typography>Số dòng: 0</Typography>
+        <ToolBar
+          buttonConfig={[
+            toolBarButtonTypes.add,
+            toolBarButtonTypes.delete,
+            toolBarButtonTypes.save,
+          ]}
+          handleConfirm={buttonConfirm}
+        />
       </Flex>
       <DataGrid
         ref={gridRef}
