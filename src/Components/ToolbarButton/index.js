@@ -65,7 +65,7 @@ const ToolBar = ({ buttonConfig, cardConfig, handleConfirm }) => {
   const [openModal] = useState(false);
   return (
     <>
-      <div style={{ padding: "4px 4px" }}>
+      <div>
         <Space size={0}>
           {buttonConfig.map((item, index) => {
             return (

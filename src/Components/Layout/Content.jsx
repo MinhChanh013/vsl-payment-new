@@ -1,4 +1,4 @@
-import { Card, Col, Row, } from "antd";
+import { Card, Col, Row } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -10,13 +10,10 @@ const Content = ({ left, children, title, type, style }) => {
   switch (type) {
     case "2-column":
       return (
-        <Row
-          gutter={[8, 8]}
-          style={{ marginTop: "8px", marginLeft: "4px", marginRight: "4px" }}
-        >
+        <Row gutter={[8, 8]} style={{ height: "100%" }}>
           <Col span={7}>
             <Card className="b-card">
-              <Row className="b-row" gutter={[8, 8]}>
+              <Row className="b-row" gutter={[8, 12]}>
                 {left}
               </Row>
             </Card>

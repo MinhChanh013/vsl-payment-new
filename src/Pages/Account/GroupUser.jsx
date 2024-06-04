@@ -28,26 +28,23 @@ const GroupUser = () => {
     {
       key: "ID",
       name: "ID",
-      width: 180,
       visible: true,
     },
     {
       key: "STT",
       name: "STT",
-      width: 120,
+      width: 150,
       type: columnTypes.TextEditor,
       editable: true,
     },
     {
       key: "GroupUser",
       name: "Tên nhóm",
-      width: 722,
       type: columnTypes.TextEditor,
     },
     {
       key: "Code",
       name: "Mô tả",
-      width: 722,
       type: columnTypes.TextEditor,
     },
   ]);

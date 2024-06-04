@@ -361,7 +361,6 @@ const SearchTransaction = () => {
           className="HeaderSearch"
           style={{ width: "24%" }}
         ></Search>
-        <Typography>Số dòng: 0</Typography>
       </Flex>
       <DataGrid
         ref={gridRef}

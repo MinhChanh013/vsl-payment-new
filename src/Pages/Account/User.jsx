@@ -41,49 +41,41 @@ const User = () => {
     {
       key: "GroupUser",
       name: "Nhóm người dùng",
-      width: 180,
       type: columnTypes.TextEditor,
     },
     {
       key: "Code",
       name: "Mã người dùng",
-      width: 180,
       type: columnTypes.TextEditor,
     },
     {
       key: "CargoCtrlNo",
       name: "Tên Người dùng",
-      width: 180,
       type: columnTypes.TextEditor,
     },
     {
       key: "CntrNo",
       name: "Mật khẩu",
-      width: 180,
       type: columnTypes.TextEditor,
     },
     {
       key: "GetIn",
       name: "Mật khẩu mặc định",
-      width: 200,
       type: columnTypes.DatePicker,
     },
     {
       key: "Birthday",
       name: "Ngày sinh",
-      width: 180,
       type: columnTypes.TextEditor,
     },
     {
       key: "Email",
       name: "Email",
-      width: 170,
       type: columnTypes.TextEditor,
     },
     {
       key: "Status",
       name: "Trạng thái",
-      width: 200,
       type: columnTypes.DatePicker,
     },
   ]);

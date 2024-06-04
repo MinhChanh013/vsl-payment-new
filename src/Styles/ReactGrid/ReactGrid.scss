@@ -29,12 +29,8 @@
 }
 
 .b-card {
-  border-radius: 0px;
-  height: 100%;
-  box-shadow: 4px 4px 8px rgb(202, 202, 202);
-  display: flex;
   .ant-card-body {
-    padding: 10px 8px;
+    padding: 18px 30px;
   }
   .ant-card-head-title {
     text-align: center;
@@ -45,17 +41,3 @@
   }
 }
 
-.b-row {
-  padding: 0px 20px 24px 20px;
-}
-
-.main-card {
-  height: calc(100vh - 160px);
-  border-radius: 0px;
-  box-shadow: 4px 4px 8px rgb(202, 202, 202);
-
-  .ant-card-body {
-    padding: 2px 0px 2px 12px;
-    height: 100%;
-  }
-}

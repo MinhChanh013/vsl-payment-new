@@ -1,3 +1,12 @@
+.ant-card {
+    height: 100%;
+    border-radius: 0px;
+    box-shadow: 4px 4px 8px rgb(202, 202, 202);
+  .ant-card-body {
+    padding: 0px;
+    height: 100%;
+  }
+}
 @import "variable";
 @import "./Dashboard/Dashboard.scss";
 @import "./Layout/Footer.scss";
