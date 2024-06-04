@@ -4,12 +4,14 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "react-data-grid/lib/styles.css";
 import Router from "./Router";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Router />
-  </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

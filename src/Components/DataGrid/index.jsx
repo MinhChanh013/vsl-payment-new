@@ -8,9 +8,16 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Pagination } from "antd";
+
+import { Pagination, Typography, Flex, Space, Divider } from "antd";
 import ReactDataGrid, { SelectColumn, textEditor } from "react-data-grid";
 import { renderCellEditDatePicker } from "./renderCellEditDatePicker";
+import { ExportExcel } from "./excelFunction";
+
+import { useDispatch } from "react-redux";
+import { setSelectedQuantity } from "../../store/slices/SelectedQuantitySlices.js";
+import { renderCellEditPassword } from "./MPassword.jsx";
+import { renderCellEditSelect } from "./MSelect.jsx";
 
 export const selectionTypes = {
   multi: "multi",
@@ -20,6 +27,9 @@ export const selectionTypes = {
 export const columnTypes = {
   DatePicker: "DatePicker",
   TextEditor: "TextEditor",
+  Checkbox: "Checkbox",
+  Password: "Password",
+  Select: "Select",
 };
 export const paginationTypes = {
   none: "none",
@@ -27,7 +37,9 @@ export const paginationTypes = {
   pagination: "pagination",
 };
 
-const getEditCell = (key, cellType) => {
+const { Title } = Typography;
+
+const getEditCell = (key, cellType, options = [], baseColumn) => {
   switch (cellType) {
     case columnTypes.DatePicker:
       return ({ row, onRowChange }) =>
@@ -37,25 +49,48 @@ const getEditCell = (key, cellType) => {
           onRowChange,
         });
 
+    case columnTypes.Password:
+      return ({ row, onRowChange }) =>
+        renderCellEditPassword({
+          key,
+          row,
+          onRowChange,
+        });
+    case columnTypes.Select:
+      return ({ row, onRowChange }) =>
+        renderCellEditSelect({
+          row,
+          key,
+          options,
+          onRowChange,
+        });
     default:
-      return textEditor;
+      return ({ row, onRowChange, column, onClose }) => {
+        if (!row.isNew) row.isEdit = true;
+        return textEditor({ row, onRowChange, column, onClose });
+      };
   }
 };
 
 const handleRenderColumn = ({
   type = columnTypes.TextEditor,
-  editable = true,
+  editable = false,
   visible = false,
   render,
   key,
   selection,
   index,
+  baseColumn,
   ...props
 }) => {
   const column = {
     ...props,
     key,
-    renderEditCell: editable ? getEditCell(key, type) : null,
+    renderEditCell: editable
+      ? getEditCell(key, type, props?.options ?? [], baseColumn)
+      : null,
+    sortable: true,
+    resizable: true,
   };
 
   // Hide column when visible = true
@@ -76,6 +111,34 @@ const handleRenderColumn = ({
   return column;
 };
 
+const getComparator = (sortColumn) => {
+  switch (sortColumn) {
+    ////// so sánh các dữ liệu kiểu số
+    case "ImExType":
+    case "SumCargoWeight":
+    case "ID":
+    case "IDRef":
+    case "STT":
+      return (a, b) => {
+        return a[sortColumn] - b[sortColumn];
+      };
+    ////// so sánh các dữ liệu kiểu chuỗi
+    default:
+      return (a, b) => {
+        if (
+          (a[sortColumn] === null && b[sortColumn] === null) ||
+          (a[sortColumn] === undefined && b[sortColumn] === undefined)
+        )
+          return 0;
+        else if (a[sortColumn] === null || a[sortColumn] === undefined)
+          return 1;
+        else if (b[sortColumn] === null || b[sortColumn] === undefined)
+          return -1;
+        else return a[sortColumn].localeCompare(b[sortColumn]);
+      };
+  }
+};
+
 const DataGrid = forwardRef(
   (
     {
@@ -89,8 +152,11 @@ const DataGrid = forwardRef(
       setRows,
       onFocus,
       limit = 20,
-      maxHeight = 600,
+      maxHeight = 720,
       pagination = paginationTypes.scroll,
+      onCellClick = false,
+      onCellDoubleClick,
+      handleGetSelected = () => {},
     },
     ref
   ) => {
@@ -99,11 +165,27 @@ const DataGrid = forwardRef(
     const [currentRows, setCurrenRows] = useState([]);
     const [currentPage, setCurrenPage] = useState(1);
     const reactDataGridRef = useRef();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-      setCurrenRows([]);
-      setCurrenPage(1);
-    }, [rows]);
+      dispatch(setSelectedQuantity([...selectedRows].length));
+    }, [selectedRows]);
+
+    const handleSelected = (idRowSelected) => {
+      if (selection === selectionTypes.multi) {
+        setSelectedRows(idRowSelected);
+      }
+      if (selection === selectionTypes.single) {
+        console.log(idRowSelected);
+        let value = idRowSelected;
+        if (typeof value === "object") {
+          const rowSelectedArr = [...value];
+          value = rowSelectedArr[rowSelectedArr.length - 1];
+        }
+        handleGetSelected(value);
+        setSelectedRows(() => new Set([value]));
+      }
+    };
 
     useEffect(() => {
       setCurrenRows([]);
@@ -126,8 +208,8 @@ const DataGrid = forwardRef(
             );
           } else {
             dataRowCurrentScroll = rows.slice(
-              rateScreen * start_index,
-              rateScreen * start_index + limit
+              limit * (rateScreen - 1) + start_index,
+              limit * rateScreen + start_index
             );
           }
           if (
@@ -156,6 +238,7 @@ const DataGrid = forwardRef(
     }, [currentPage, limit, pagination, rows]);
 
     useEffect(() => {
+      rows.map((row, index) => (row["STT"] = index + 1));
       if (pagination === "scroll") {
         reactDataGridRef.current?.element.addEventListener(
           "scroll",
@@ -171,8 +254,19 @@ const DataGrid = forwardRef(
     }, [rows]);
 
     const rateScreen = useMemo(() => {
-      return Math.ceil(maxHeight / (limit * 30));
+      return Math.ceil(maxHeight / (limit * 40));
     }, []);
+
+    const summaryRows = useMemo(() => {
+      let cntrNoCount = new Set(rows.map((obj) => obj["CntrNo"]));
+      return [
+        {
+          id: "total_0",
+          totalCount: rows.length,
+          cntrNoCount: [...cntrNoCount].length,
+        },
+      ];
+    }, [rows]);
 
     const columnsCombined = useMemo(() => {
       return [SelectColumn, ...columns]
@@ -199,6 +293,56 @@ const DataGrid = forwardRef(
       }
     }, []);
 
+    const handleExportExcel = useCallback(
+      () => ExportExcel(columns, rows),
+      [rows]
+    );
+
+    const handleResetSelected = useCallback(
+      () => setSelectedRows(() => new Set()),
+      [rows]
+    );
+
+    const handleValidate = (keyId = columnKeySelected) => {
+      const listRowsChange = rows.filter((row) => row?.isEdit || row?.isNew);
+      const requiredFields = columns.filter((field) => field.required);
+      const listValidate = listRowsChange.map((item) => {
+        const errors = [];
+        requiredFields.forEach((field) => {
+          if (
+            (field.required && !item.hasOwnProperty(field.key)) ||
+            item[field.key] === ""
+          ) {
+            errors.push(field.key);
+          }
+        });
+        return { [keyId]: item[keyId], isError: errors.length > 0, errors };
+      });
+
+      setRows(
+        rows.map((row) => {
+          const indexValidate = listValidate.findIndex(
+            (itemValidate) => itemValidate[keyId] === row[keyId]
+          );
+          if (indexValidate !== -1) {
+            return {
+              ...row,
+              isError: listValidate[indexValidate].isError,
+              errors: listValidate[indexValidate].errors,
+            };
+          } else
+            return {
+              ...row,
+            };
+        })
+      );
+
+      return {
+        isCheck: !listValidate.some((item) => item.isError),
+        validate: listValidate,
+      };
+    };
+
     useImperativeHandle(
       ref,
       () => {
@@ -209,11 +353,13 @@ const DataGrid = forwardRef(
           setSelectedRows: () => {
             setSelectedRows(new Set());
           },
+          exportExcel: () => handleExportExcel(),
+          ResetSelected: () => handleResetSelected(),
+          Validate: () => handleValidate(),
         };
       },
       [selectedRows]
     );
-
     const handleScroll = () => {
       const dataGridScrollTop = reactDataGridRef.current.element.scrollTop;
       const dataGridScrollHeight =
@@ -230,11 +376,36 @@ const DataGrid = forwardRef(
       }
     };
 
+    const sortedRows = useMemo(() => {
+      if (sortColumns.length === 0) return currentRows;
+
+      return [...currentRows].sort((a, b) => {
+        for (const sort of sortColumns) {
+          const comparator = getComparator(sort.columnKey);
+          const compResult = comparator(a, b);
+          if (compResult !== 0) {
+            return sort.direction === "ASC" ? compResult : -compResult;
+          }
+        }
+        return 0;
+      });
+    }, [currentRows, sortColumns]);
+
     return (
       <>
         <ReactDataGrid
+          renderers={{
+            noRowsFallback: (
+              <Title
+                level={5}
+                style={{ color: "#818181", gridColumn: "1/-1", margin: "10px" }}
+              >
+                --- Không có dữ liệu ---
+              </Title>
+            ),
+          }}
           ref={reactDataGridRef}
-          className={`rdg-light b-table ${className} ${
+          className={`rdg-light ${className} ${
             pagination === "scroll" ? "fill-grid" : ""
           }`}
           style={{
@@ -242,13 +413,13 @@ const DataGrid = forwardRef(
             maxHeight: maxHeight,
             ...style,
           }}
-          defaultColumnOptions={{ sortable: true, resizable: true }}
+          // defaultColumnOptions={{ sortable: true, resizable: true }}
           sortColumns={sortColumns}
           onSortColumnsChange={setSortColumns}
-          rows={currentRows}
+          rows={sortedRows}
           columns={columnsCombined}
           selectedRows={selectedRows}
-          rowHeight={30}
+          rowHeight={42}
           direction={direction}
           rowKeyGetter={(row) => row[columnKeySelected]}
           onRowsChange={setRows}
@@ -259,31 +430,74 @@ const DataGrid = forwardRef(
           onFill={handleFill}
           onCopy={handleCopy}
           onPaste={handlePaste}
-          onSelectedRowsChange={setSelectedRows}
-          onCellClick={(args, event) => {
-            if (args.column.key === "title") {
-              event.preventGridDefault();
-              args.selectCell(true);
+          onSelectedRowsChange={(row) => {
+            handleSelected(row);
+          }}
+          onCellClick={(args) => {
+            if (onCellClick && args.column.key !== "select-row") {
+              handleSelected(args.row[columnKeySelected]);
             }
           }}
+          onCellDoubleClick={(args) => {
+            if (
+              typeof onCellDoubleClick === "function" &&
+              args.column.key !== "select-row"
+            )
+              onCellDoubleClick();
+          }}
         />
-        {pagination === "pagination" && rows && rows.length > 0 ? (
-          <Pagination
-            style={{
-              marginTop: 10,
-              marginRight: 10,
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-            pageSize={limit}
-            showSizeChanger={false}
-            onChange={(pageChange) => setCurrenPage(pageChange)}
-            defaultCurrent={currentPage}
-            total={rows.length}
-          />
-        ) : (
-          ""
-        )}
+        <Flex
+          style={{ boxSizing: "border-box", height: "40px" }}
+          align="center"
+          justify="space-between"
+        >
+          <Space style={{ padding: "10px 20px" }}>
+            <Typography
+              level={5}
+              style={{
+                textAlign: "center",
+                fontWeight: "600",
+                color: "#555555",
+              }}
+            >
+              Số dòng: {summaryRows[0].totalCount.toLocaleString("vi-VN")}
+            </Typography>
+            {rows.some((obj) => "CntrNo" in obj) ? (
+              <>
+                <Divider type="vertical" style={{ borderColor: "#818181" }} />
+                <Typography
+                  level={5}
+                  style={{
+                    textAlign: "center",
+                    fontWeight: "600",
+                    color: "#555555",
+                  }}
+                >
+                  Số công: {summaryRows[0].cntrNoCount.toLocaleString("vi-VN")}
+                </Typography>
+              </>
+            ) : (
+              ""
+            )}
+          </Space>
+          {pagination === "pagination" && rows && rows.length > 0 ? (
+            <Pagination
+              style={{
+                marginTop: 10,
+                marginRight: 10,
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+              pageSize={limit}
+              showSizeChanger={false}
+              onChange={(pageChange) => setCurrenPage(pageChange)}
+              defaultCurrent={currentPage}
+              total={rows.length}
+            />
+          ) : (
+            ""
+          )}
+        </Flex>
       </>
     );
   }

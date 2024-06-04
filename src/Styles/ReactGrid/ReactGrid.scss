@@ -1,9 +1,4 @@
-.b-table {
-  width: 100%;
-  overflow: auto;
-  color: "red";
-  height: 400px;
-  .rdg-header-row .rdg-cell {
+.rdg-header-row .rdg-cell {
     height: 42px;
     color: white;
     padding-block-start: unset !important;
@@ -13,12 +8,11 @@
     align-items: center;
     background-color: $primary_color;
   }
-}
 
-.b-table .rg-header-cell {
-  justify-content: center;
-  background: rgba(134, 229, 255, 0.5) !important;
-}
+// .b-table .rg-header-cell {
+//   justify-content: center;
+//   background: rgba(134, 229, 255, 0.5) !important;
+// }
 
 .b-field {
   width: 100%;
