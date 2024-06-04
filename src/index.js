@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import "react-data-grid/lib/styles.css";
+// import "react-data-grid/lib/styles.css";
 import Router from "./Router";
 import { Provider } from "react-redux";
 import store from "./store";
