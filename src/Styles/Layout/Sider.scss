@@ -1,15 +1,11 @@
 .SiderWrapper {
-  padding: 0px;
-  padding-top: 8px;
 }
 .SiderTop {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0px;
   img {
     width: 63px;
-    padding-bottom: 4px;
   }
   @mixin siderTitle {
     display: flex;
@@ -31,13 +27,21 @@
   }
 }
 .SiderMenu {
+  position: relative;
   background-color: transparent;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: rgba($color: $primary_color, $alpha: 0.6);
+    width: 90%;
+    height: 1px;
+  }
   @mixin menu-item-style {
     width: $width_menu_item;
-    border-left: 25px solid transparent;
+    padding-left: 50px !important;
     margin: 8px 0px;
     font-size: 1rem;
     color: $text_primary_color;
@@ -54,17 +58,17 @@
     @include menu-item-style;
   }
   .ant-menu-sub {
-    box-shadow: inset 0px 3px 6px rgb(216, 216, 216) !important;
+    // box-shadow: inset 0px 3px 6px rgb(216, 216, 216) !important;
+    background-color: transparent !important;
   }
 
   .ant-menu-submenu {
     width: $width_menu_item;
     .ant-menu-submenu-title {
       @include menu-item-style;
-      width: 100%;
     }
     .ant-menu-item {
-      width: 100%;
+      padding-left: 70px !important;
     }
   }
   .ant-menu-item-selected {
@@ -79,7 +83,7 @@
       background-color: $primary_color;
       border-radius: 4px;
       position: absolute;
-      left: -25px;
+      left: 0px;
       top: 0px;
     }
   }

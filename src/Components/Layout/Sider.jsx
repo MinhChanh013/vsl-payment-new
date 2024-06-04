@@ -77,13 +77,19 @@ const Sider = () => {
   ];
   const handleClick = () => {};
   return (
-    <Row className="SiderWrapper">
+    <Row
+      style={{ marginTop: "26px" }}
+      className="SiderWrapper"
+      gutter={[0, 18]}
+    >
       <Col span={24}>
         <Link className="SiderTop" to={"/"}>
           <img src="./LOGO.png" />
           <Flex>
             <Typography className="SiderTitle_primary">VSL</Typography>
-            <Typography className="SiderTitle_secondary">PAYMENT PORTAL</Typography>
+            <Typography className="SiderTitle_secondary">
+              PAYMENT PORTAL
+            </Typography>
           </Flex>
         </Link>
       </Col>

@@ -360,7 +360,6 @@ const Report = () => {
           className="HeaderSearch"
           style={{ width: "24%" }}
         ></Search>
-        <Typography>Số dòng: 0</Typography>
       </Flex>
       <DataGrid
         ref={gridRef}
@@ -372,6 +371,7 @@ const Report = () => {
         setRows={setRows}
         onFocus={onFocus}
         pagination={paginationTypes.scroll}
+        maxHeight={800}
         limit={5}
       />
     </Content>

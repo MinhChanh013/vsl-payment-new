@@ -213,31 +213,25 @@ const Dashboard = () => {
   const handleLoadData = () => {}; // xu ly nap ddu lieu
   const handleExport = () => {}; // xu ly xuat excel
   return (
-    <Row
-      gutter={[8, 8]}
-      style={{ marginTop: "8px", marginLeft: "4px", marginRight: "4px" }}
-    >
-      <Col span={14}>
+    <Row gutter={[30, 30]}>
+      <Col span={15}>
         <Card
           style={{
-            padding: "12px",
-            paddingRight: "50px",
+            padding: "30px",
             borderRadius: "20px",
           }}
         >
-          <Row>
+          <Row gutter={[0, 12]}>
             <Col span={24}>
               <Title style={{ margin: "0px", fontWeight: "bold" }} level={4}>
                 Sơ lược về giao dịch
               </Title>
             </Col>
             <Col span={24}>
-              <Typography style={{ margin: "10px 0px", fontSize: "1.1rem" }}>
-                năm 2023
-              </Typography>
+              <Typography style={{ fontSize: "1.1rem" }}>năm 2023</Typography>
             </Col>
             <Col span={24}>
-              <Flex justify="space-between">
+              <Flex justify="space-around">
                 {OverviewItem.map((item) => {
                   return (
                     <TransactionOverviewItem
@@ -249,6 +243,7 @@ const Dashboard = () => {
                         width: "250px",
                         height: "186px",
                         padding: "20px",
+                        boxShadow: "none",
                       }}
                     />
                   );
@@ -258,10 +253,10 @@ const Dashboard = () => {
           </Row>
         </Card>
       </Col>
-      <Col span={8} style={{ marginLeft: "30px" }}>
+      <Col span={9}>
         <Card
           style={{
-            paddingLeft: "12px",
+            padding: "20px",
             borderRadius: "20px",
           }}
         >

@@ -9,31 +9,46 @@ const { Header, Footer, Sider, Content } = Layout;
 export default function DefaultLayout() {
   const [title, setTitle] = useState("");
   return (
-    <Layout style={{ backgroundColor: "#e2e2e2", minHeight: "100vh" }}>
-      <Sider width={"var(--width-sider)"} style={{ backgroundColor: "white" }}>
+    <Layout
+      style={{
+        backgroundColor: "var(--background-color)",
+        minHeight: "100vh",
+      }}
+    >
+      <Sider
+        width={"var(--width-sider)"}
+        style={{ backgroundColor: "transparent" }}
+      >
         <SiderCompoent />
       </Sider>
       <Layout
-        style={{ backgroundColor: "transparent", padding: "0px 20px 0px 15px" }}
+        style={{
+          backgroundColor: "transparent",
+          padding: "0px 20px",
+        }}
       >
         <Header
           style={{
             backgroundColor: "transparent",
             height: "var(--height-header)",
-            padding: "10px 10px",
+            padding: "0px",
+            margin: "8px 0px 16px 0px",
           }}
         >
-          <HeaderCompoent title={title}/>
+          <HeaderCompoent title={title} />
         </Header>
         <Content>
-          <Outlet context={[title, setTitle]}/>
+          <Outlet context={[title, setTitle]} />
         </Content>
         <Footer
           style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             backgroundColor: "transparent",
             boxSizing: "border-box",
             height: "var(--height-footer)",
-            padding: "12px",
+            padding: "0px",
           }}
         >
           <FooterCompoent />

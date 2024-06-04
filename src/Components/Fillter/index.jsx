@@ -5,7 +5,7 @@ import InputFilter from "./InputFilter";
 import RadioGroupFilter from "./RadioGroupFilter";
 import RangePickerFilter from "./RangePickerFilter";
 import TextAreaFilter from "./TextAreaFilter";
-import DropdownFillter from "./DropdownFillter";
+import DropdownFillter from "./SelectFillter";
 const { Text } = Typography;
 const pickComponent = (type) =>
   ({
@@ -43,7 +43,7 @@ export const Filter = (
 
   return (
     <Form form={form} initialValues={initialValues}>
-      <Row gutter={[0, 16]} style={{ marginTop: "10px" }}>
+      <Row gutter={[0, 16]}>
         {items.map(({ type, label, config }, index) => {
           const Component = pickComponent(type);
           return (
