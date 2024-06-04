@@ -48,7 +48,7 @@ const Header = ({ title }) => {
   return (
     <Card
       style={{
-        padding:"0px 20px"
+        padding: "0px 50px 0px 30px",
       }}
     >
       <Row align="middle" justify="space-between" style={{ blockSize: "100%"}}>
@@ -77,7 +77,7 @@ const Header = ({ title }) => {
             />
           </Dropdown>
           <Dropdown
-            menu={{ items: SETTING_ITEMS, onclick }}
+            menu={{ items: SETTING_ITEMS, onClick }}
             placement="bottomRight"
           >
             <Button
