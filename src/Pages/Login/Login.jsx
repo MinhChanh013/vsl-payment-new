@@ -16,13 +16,19 @@ import {
   LoginOutlined,
 } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../../services";
 
 const { Title } = Typography;
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  });
   const handleSubmit = async (e) => {
     setIsLoading(true);
     try {
