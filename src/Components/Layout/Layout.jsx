@@ -32,7 +32,7 @@ export default function DefaultLayout() {
             backgroundColor: "transparent",
             height: "var(--height-header)",
             padding: "0px",
-            margin: "10px 0px 16px 0px",
+            margin: "8px 0px 16px 0px",
           }}
         >
           <HeaderCompoent title={title} />

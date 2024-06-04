@@ -1,13 +1,16 @@
+.rdg {
+  border: none;
+}
 .rdg-header-row .rdg-cell {
-    height: 42px;
-    color: white;
-    padding-block-start: unset !important;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $primary_color;
-  }
+  height: 42px;
+  color: white;
+  padding-block-start: unset !important;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary_color;
+}
 
 // .b-table .rg-header-cell {
 //   justify-content: center;
@@ -40,4 +43,3 @@
     white-space: break-spaces;
   }
 }
-
