@@ -77,12 +77,8 @@ const Sider = () => {
   ];
   const handleClick = () => {};
   return (
-    <Row
-      style={{ marginTop: "26px" }}
-      className="SiderWrapper"
-      gutter={[0, 18]}
-    >
-      <Col span={24}>
+    <Row className="SiderWrapper" gutter={[0, 18]}>
+      <Col span={24} style={{padding: "12px"}}>
         <Link className="SiderTop" to={"/"}>
           <img src="./LOGO.png" />
           <Flex>

@@ -11,18 +11,17 @@
     display: flex;
     align-items: self-end;
     letter-spacing: 3px;
+    font-size: 1rem;
   }
   .SiderTitle_secondary {
     @include siderTitle;
     color: $primary_color;
-    font-size: 1rem;
     font-weight: 700;
   }
   .SiderTitle_primary {
     @include siderTitle;
     color: $red_color;
     padding-right: 6px;
-    font-size: 1.2rem;
     font-weight: 900;
   }
 }
@@ -32,13 +31,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  &::before {
-    content: "";
-    position: absolute;
-    background-color: rgba($color: $primary_color, $alpha: 0.6);
-    width: 90%;
-    height: 1px;
-  }
   @mixin menu-item-style {
     width: $width_menu_item;
     padding-left: 50px !important;
@@ -68,7 +60,7 @@
       @include menu-item-style;
     }
     .ant-menu-item {
-      padding-left: 70px !important;
+      padding-left: 90px !important;
     }
   }
   .ant-menu-item-selected {

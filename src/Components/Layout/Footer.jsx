@@ -1,9 +1,9 @@
-import { Typography } from "antd";
+import { Card } from "antd";
 const Footer = () => {
   return (
-    <Typography style={{ textAlign: "center" }} className="Footer">
+    <Card className="Footer">
       copyright by Ceh software version 1.2 2023
-    </Typography>
+    </Card>
   );
 };
 
