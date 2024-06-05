@@ -24,7 +24,7 @@ export default function DefaultLayout() {
       <Layout
         style={{
           backgroundColor: "transparent",
-          padding: "0px 20px",
+          padding: "0px 10px",
         }}
       >
         <Header
@@ -32,7 +32,7 @@ export default function DefaultLayout() {
             backgroundColor: "transparent",
             height: "var(--height-header)",
             padding: "0px",
-            margin: "8px 0px 16px 0px",
+            marginBottom: "16px",
           }}
         >
           <HeaderCompoent title={title} />
@@ -42,13 +42,11 @@ export default function DefaultLayout() {
         </Content>
         <Footer
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             backgroundColor: "transparent",
             boxSizing: "border-box",
             height: "var(--height-footer)",
             padding: "0px",
+            marginTop:"12px"
           }}
         >
           <FooterCompoent />

@@ -410,7 +410,7 @@ const DataGrid = forwardRef(
             pagination === "scroll" ? "fill-grid" : ""
           }`}
           style={{
-            height: "calc(100% - 40px)",
+            height: "calc(100% - 94px)",
             maxHeight: maxHeight,
             ...style,
           }}
