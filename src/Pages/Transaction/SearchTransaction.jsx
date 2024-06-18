@@ -20,7 +20,6 @@ const SearchTransaction = () => {
   const gridRef = React.createRef();
   const [rows, setRows] = React.useState([]);
   const [form] = Form.useForm();
-  
   const buttonConfirm = () => {}; // Action cua cac button
   const handleLoadData = () => {}; // xu ly nap ddu lieu
   const handleExport = () => {}; // xu ly xuat excel

@@ -24,6 +24,8 @@ import TransactionOverviewItem from "./TransactionOverviewItem.jsx";
 import VirtualList from "rc-virtual-list";
 import { useOutletContext } from "react-router-dom";
 import Content from "../../Components/Layout/Content.jsx";
+import "chart.js/auto";
+import { Chart } from "react-chartjs-2";
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -38,7 +40,7 @@ const Dashboard = () => {
   const [title, setTitle] = useOutletContext();
 
   React.useEffect(() => {
-    setTitle("TỔNG QUÁT");
+    setTitle(["Tổng quát", ""]);
   }, []);
 
   const OverviewItem = [
@@ -310,8 +312,90 @@ const Dashboard = () => {
           </Row>
         </Card>
       </Col>
-      <Col span={12}></Col>
-      <Col span={12}></Col>
+      <Col span={16}>
+        <Card
+          style={{
+            padding: "20px",
+            borderRadius: "20px",
+            height: "400px",
+          }}
+        >
+          <Chart
+            type="line"
+            data={{
+              labels: [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ],
+              datasets: [
+                {
+                  label: "Doanh thu",
+                  data: [12, 19, 3, 5, 2, 3, 10, 15, 8, 4, 1, 7],
+                  backgroundColor: "rgba(255, 99, 132, 0.2)",
+                  borderColor: "rgba(255, 99, 132, 1)",
+                  borderWidth: 2,
+                  fill: false,
+                },
+                {
+                  label: "chi tiêu",
+                  data: [4, 7, 9, 7, 12, 6, 2, 5, 8, 4, 3, 7],
+                  borderColor: "#8bc9ff",
+                  borderWidth: 2,
+                  fill: false,
+                },
+              ],
+            }}
+            options={{
+              title: {
+                display: true,
+                text: "World population per region (in millions)",
+              },
+              legend: {
+                display: true,
+                position: "bottom",
+              },
+            }}
+          />
+        </Card>
+      </Col>
+      <Col span={8}>
+        <Card
+          style={{
+            padding: "20px",
+            borderRadius: "20px",
+            height: "400px",
+            display: "Flex",
+            justifyContent: "center",
+          }}
+        >
+          <Chart
+            type="doughnut"
+            data={{
+              labels: ["VSL", "MNR", "CFS"],
+              datasets: [
+                {
+                  label: "Population (millions)",
+                  backgroundColor: ["#e63e30", "#cee8ff", "#058ee3"],
+                  data: [24, 52, 10],
+                },
+              ],
+            }}
+            option={{
+              maintainAspectRatio: false,
+            }}
+          />
+        </Card>
+      </Col>
       <Col span={17}></Col>
       <Col span={7}></Col>
     </Row>
