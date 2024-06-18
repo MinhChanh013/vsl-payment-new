@@ -7,7 +7,7 @@ import SiderCompoent from "./Sider.jsx";
 import "../../Styles/Global.scss";
 const { Header, Footer, Sider, Content } = Layout;
 export default function DefaultLayout() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState([]);
   return (
     <Layout
       style={{
@@ -32,7 +32,7 @@ export default function DefaultLayout() {
             backgroundColor: "transparent",
             height: "var(--height-header)",
             padding: "0px",
-            marginBottom: "16px",
+            margin: "12px 0px",
           }}
         >
           <HeaderCompoent title={title} />

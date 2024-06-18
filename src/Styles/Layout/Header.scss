@@ -1,11 +1,6 @@
-.HeaderSearch {
-  border: none;
-  border-bottom: 2px solid rgba($color: $primary_color, $alpha: 1);
-  width: 400px;
-  margin-right: 40px;
+@mixin style-header {
   .ant-input {
     border-color: transparent;
-    background-color: transparent;
     color: $primary_color;
     font-weight: 500;
     &:hover,
@@ -17,20 +12,32 @@
       color: rgba($color: $primary_color, $alpha: 1);
     }
   }
-  .ant-input-group-addon {
-    background-color: transparent;
-    .ant-btn {
-      border: none;
-      background-color: transparent;
-      .anticon {
-        font-size: 1.4rem;
-        color: $primary_color;
-      }
-      &:active,
-      &:hover {
-        background-color: transparent;
-      }
+  .ant-btn {
+    border: none;
+    .anticon {
+      font-size: 1.4rem;
+      color: $primary_color;
     }
+  }
+}
+
+.HeaderSearch {
+  border: none;
+  border-bottom: 2px solid rgba($color: $primary_color, $alpha: 1);
+  @include style-header();
+}
+.HeaderSearch_2 {
+  border: 1px solid rgba($color: $primary_color, $alpha: 1);
+  border-radius: 16px;
+  width: 360px;
+  margin-right: 30px;
+  @include style-header();
+  .ant-input {
+    border-radius: 16px;
+  }
+  .ant-btn {
+    border-top-right-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
   }
 }
 .HeaderBtn {

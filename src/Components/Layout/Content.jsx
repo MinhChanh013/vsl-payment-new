@@ -1,11 +1,14 @@
 import { Card, Col, Row } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Content = ({ left, children, title, type, style }) => {
   const [titlee, setTitle] = useOutletContext();
+  let location = useLocation();
+  console.log(location);
   useEffect(() => {
-    setTitle(title);
+    setTitle([title, location.pathname]);
   }, []);
   switch (type) {
     case "2-column":
