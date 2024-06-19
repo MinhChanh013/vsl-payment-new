@@ -7,6 +7,7 @@ import {
   Button,
   Divider,
   Card,
+  Breadcrumb,
 } from "antd";
 
 import {
@@ -45,55 +46,62 @@ const Header = ({ title }) => {
     if (key === "logout") localStorage.clear("token");
   };
 
+  let partName = "";
+  if (title.length > 0) {
+    partName = title[1].split("/");
+  }
+
   return (
-    <Card
-      style={{
-        padding: "0px 50px 0px 30px",
-      }}
-    >
-      <Row align="middle" justify="space-between" style={{ blockSize: "100%"}}>
-        <Col>
-          <Title level={4} style={{ margin: "0px" }}>
-            {title}
-          </Title>
-        </Col>
-        <Col
+    // <Card
+    //   style={{
+    //     padding: "0px 50px 0px 30px",
+    //   }}
+    // >
+    <Row align="middle" justify="space-between" style={{ blockSize: "100%" }}>
+      <Col>
+        <Title level={4} style={{ margin: "0px" }}>
+          {title[0]}
+        </Title>
+        <Breadcrumb
+          items={[
+            {
+              title: <Link to={"/"}>Home</Link>,
+            },
+            {
+              title: <Link to={title[1]}>{partName}</Link>,
+            },
+          ]}
+        />
+      </Col>
+      <Col
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Search
+          size="large"
+          placeholder="Tìm kiếm"
+          className="HeaderSearch_2"
+        ></Search>
+        <Dropdown menu={{ items }} placement="bottomRight">
+          <Button size="large" className="HeaderBtn" icon={<BellOutlined />} />
+        </Dropdown>
+
+        <Button size="large" className="HeaderBtn" icon={<SettingOutlined />} />
+        <Divider
+          type="vertical"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            blockSize: "30px",
+            marginInlineEnd: "40px",
+            marginInlineStart: "10px",
           }}
+        />
+        <Dropdown
+          menu={{ items: SETTING_ITEMS, onClick }}
+          placement="bottomRight"
         >
-          <Search
-            size="large"
-            placeholder="Tìm kiếm"
-            className="HeaderSearch"
-          ></Search>
-          <Dropdown menu={{ items }} placement="bottomRight">
-            <Button
-              size="large"
-              className="HeaderBtn"
-              icon={<BellOutlined />}
-            />
-          </Dropdown>
-          <Dropdown
-            menu={{ items: SETTING_ITEMS, onClick }}
-            placement="bottomRight"
-          >
-            <Button
-              size="large"
-              className="HeaderBtn"
-              icon={<SettingOutlined />}
-            />
-          </Dropdown>
-          <Divider
-            type="vertical"
-            style={{
-              blockSize: "30px",
-              marginInlineEnd: "40px",
-              marginInlineStart: "10px",
-            }}
-          />
           <Row align={"middle"} className="HeaderAcc">
             <Col style={{ paddingInlineEnd: "10px" }}>
               <Typography className="HeaderAccName">{Acc.name}</Typography>
@@ -103,9 +111,10 @@ const Header = ({ title }) => {
               <img className="HeaderAccImg" src={Avatar} alt="avatar"></img>
             </Col>
           </Row>
-        </Col>
-      </Row>
-    </Card>
+        </Dropdown>
+      </Col>
+    </Row>
+    // </Card>
   );
 };
 
