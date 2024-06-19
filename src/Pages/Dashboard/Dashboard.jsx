@@ -25,9 +25,31 @@ import VirtualList from "rc-virtual-list";
 import { useOutletContext } from "react-router-dom";
 import Content from "../../Components/Layout/Content.jsx";
 import "chart.js/auto";
-import { Chart } from "react-chartjs-2";
+// import {
+//   Chart as ChartJS,
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Tooltip,
+//   Legend,
+//   Title,
+//   ArcElement,
+//   plugins,
+// } from "chart.js";
+import { Line, Doughnut } from "react-chartjs-2";
+import { Legend } from "chart.js/auto";
+// ChartJS.register(
+//   CategoryScale,
+//   LinearScale,
+//   ArcElement,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend
+// );
 
-const { Title } = Typography;
 const { Search } = Input;
 
 const Dashboard = () => {
@@ -41,6 +63,29 @@ const Dashboard = () => {
 
   React.useEffect(() => {
     setTitle(["Tổng quát", ""]);
+    setRows([
+      {
+        ID: "1",
+        JobStatus: "a123",
+        StatusMarker: "a123",
+        BillOfLading: "a123",
+        CargoCtrlNo: "a123",
+      },
+      {
+        ID: "2",
+        JobStatus: "a123",
+        StatusMarker: "a123",
+        BillOfLading: "a123",
+        CargoCtrlNo: "a123",
+      },
+      {
+        ID: "3",
+        JobStatus: "a123",
+        StatusMarker: "a123",
+        BillOfLading: "a123",
+        CargoCtrlNo: "a123",
+      },
+    ]);
   }, []);
 
   const OverviewItem = [
@@ -84,136 +129,64 @@ const Dashboard = () => {
       description: "+8% so với 2022",
     },
     {
-      id: 1,
+      id: 4,
       icon: <UserOutlined className="DashboardIcon" />,
       title: "Tổng số tiền",
       description: "+8% so với 2022",
     },
     {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 1,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 1,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 1,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 1,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 1,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 1,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 2,
-      icon: <UserOutlined className="DashboardIcon" />,
-      title: "Tổng số tiền",
-      description: "+8% so với 2022",
-    },
-    {
-      id: 3,
+      id: 5,
       icon: <UserOutlined className="DashboardIcon" />,
       title: "Tổng số tiền",
       description: "+8% so với 2022",
     },
   ];
 
-  const buttonConfirm = () => {}; // Action cua cac button
-  const handleLoadData = () => {}; // xu ly nap ddu lieu
-  const handleExport = () => {}; // xu ly xuat excel
+  const columns = basicRenderColumns([
+    {
+      key: "ID",
+      name: "ID",
+      visible: true,
+    },
+    {
+      key: "JobStatus",
+      name: "Hành Động",
+      type: columnTypes.TextEditor,
+      editable: true,
+    },
+    {
+      key: "StatusMarker",
+      name: "Trạng Thái",
+      type: columnTypes.TextEditor,
+    },
+    {
+      key: "BillOfLading",
+      name: "Số Vận Đơn",
+      type: columnTypes.TextEditor,
+    },
+    {
+      key: "CargoCtrlNo",
+      name: "Số Định Danh",
+      type: columnTypes.TextEditor,
+    },
+  ]);
+
+  const options = {
+    responsive: true,
+    interaction: {
+      mode: "index",
+      intersect: false,
+    },
+    stacked: false,
+    scales: {
+      y: {
+        type: "linear",
+        display: true,
+        position: "left",
+      },
+    },
+    maintainAspectRatio: false,
+  };
   return (
     <Row gutter={[30, 30]}>
       <Col span={15}>
@@ -225,31 +198,30 @@ const Dashboard = () => {
         >
           <Row gutter={[0, 12]}>
             <Col span={24}>
-              <Title style={{ margin: "0px", fontWeight: "bold" }} level={4}>
+              <Typography
+                style={{
+                  margin: "0px",
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+                }}
+              >
                 Sơ lược về giao dịch
-              </Title>
+              </Typography>
             </Col>
             <Col span={24}>
               <Typography style={{ fontSize: "1.1rem" }}>năm 2023</Typography>
             </Col>
             <Col span={24}>
               <Flex justify="space-around">
-                {OverviewItem.map((item) => {
-                  return (
-                    <TransactionOverviewItem
-                      icon={item.icon}
-                      amount={item.amount}
-                      title={item.title}
-                      percentChange={item.percentChange}
-                      style={{
-                        width: "250px",
-                        height: "186px",
-                        padding: "20px",
-                        boxShadow: "none",
-                      }}
-                    />
-                  );
-                })}
+                <TransactionOverviewItem
+                  items={OverviewItem}
+                  style={{
+                    padding: "20px",
+                    boxShadow: "none",
+                  }}
+                  itemInLine={3}
+                  gutters={50}
+                />
               </Flex>
             </Col>
           </Row>
@@ -264,7 +236,7 @@ const Dashboard = () => {
         >
           <Row>
             <Col span={24}>
-              <Title
+              <Typography
                 style={{
                   margin: "0px",
                   paddingBottom: "16px",
@@ -273,18 +245,22 @@ const Dashboard = () => {
                 level={4}
               >
                 Giao dịch gần đây
-              </Title>
+              </Typography>
             </Col>
             <Col span={24}>
               <TransactionOverviewItem
                 style={{
                   width: "100%",
-                  height: "90px",
+                  height: "80px",
                   padding: "10px",
                   paddingLeft: "30px",
                 }}
-                title="Tháng 5"
-                amount="20.000.000$"
+                items={[
+                  {
+                    title: "Tháng 5",
+                    amount: "20.000.000$",
+                  },
+                ]}
                 lineSpace={0}
               />
             </Col>
@@ -292,7 +268,7 @@ const Dashboard = () => {
               <List>
                 <VirtualList
                   data={NoticeItems}
-                  height={200}
+                  height={150}
                   itemHeight={40}
                   itemKey={"id"}
                 >
@@ -312,16 +288,84 @@ const Dashboard = () => {
           </Row>
         </Card>
       </Col>
-      <Col span={16}>
+      <Col span={12}>
+        <Card
+          className="Dashboard-table"
+          style={{ height: "300px", padding: "10px", borderRadius: "20px" }}
+        >
+          <DataGrid
+            ref={gridRef}
+            direction="ltr"
+            columnKeySelected="ID"
+            selection={selectionTypes.multi}
+            columns={columns}
+            rows={rows}
+            setRows={setRows}
+            onFocus={onFocus}
+            pagination={paginationTypes.scroll}
+            maxHeight={800}
+            limit={5}
+          />
+        </Card>
+      </Col>
+
+      <Col span={12}>
         <Card
           style={{
             padding: "20px",
             borderRadius: "20px",
+            height: "300px",
+          }}
+        >
+          <Line
+            data={{
+              labels: [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ],
+              datasets: [
+                {
+                  label: "Doanh thu",
+                  data: [12, 19, 3, 5, 2, 3, 10, 15, 8, 4, 1, 7],
+                  backgroundColor: "#cee8ff",
+                  borderColor: "#8bc9ff",
+                  borderWidth: 2,
+                  fill: true,
+                },
+              ],
+            }}
+            options={{
+              ...options,
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Chart.js Line Chart - Multi Axis",
+                  position: "bottom",
+                },
+              },
+            }}
+          />
+        </Card>
+      </Col>
+      <Col span={17}>
+        <Card
+          style={{
+            padding: "32px",
+            borderRadius: "20px",
             height: "400px",
           }}
         >
-          <Chart
-            type="line"
+          <Line
             data={{
               labels: [
                 "Jan",
@@ -356,30 +400,34 @@ const Dashboard = () => {
               ],
             }}
             options={{
-              title: {
-                display: true,
-                text: "World population per region (in millions)",
-              },
-              legend: {
-                display: true,
-                position: "bottom",
+              ...options,
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Chart.js Line Chart - Multi Axis",
+                  position: "bottom",
+                },
+                legend: {
+                  display: true, // Hiển thị chú thích
+                  position: "right", // Hiển thị chú thích ở bên phải
+                },
               },
             }}
           />
         </Card>
       </Col>
-      <Col span={8}>
+      <Col span={7}>
         <Card
           style={{
             padding: "20px",
             borderRadius: "20px",
             height: "400px",
-            display: "Flex",
-            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Chart
-            type="doughnut"
+          <Doughnut
             data={{
               labels: ["VSL", "MNR", "CFS"],
               datasets: [
@@ -391,13 +439,24 @@ const Dashboard = () => {
               ],
             }}
             option={{
-              maintainAspectRatio: false,
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Biểu đồ Doughnut",
+                  font: {
+                    size: 20,
+                  },
+                },
+              },
             }}
           />
+          <Typography
+            style={{ width: "100%", textAlign: "center", paddingTop: "16px" }}
+          >
+            Biểu đồ hình tròn
+          </Typography>
         </Card>
       </Col>
-      <Col span={17}></Col>
-      <Col span={7}></Col>
     </Row>
   );
 };
