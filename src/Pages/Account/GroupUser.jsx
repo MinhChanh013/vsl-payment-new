@@ -1,18 +1,16 @@
-import { Card, Col, Form, Row, Divider, Typography, Flex, Input } from "antd";
+import { Form, Flex } from "antd";
 import * as React from "react";
 import DataGrid, {
   columnTypes,
   paginationTypes,
   selectionTypes,
 } from "../../Components/DataGrid/index.jsx";
-import { Filter, filterType } from "../../Components/Fillter/index.jsx";
 import ToolBar, {
   toolBarButtonTypes,
 } from "../../Components/ToolbarButton/index.js";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
 import Content from "../../Components/Layout/Content.jsx";
-
-const { Search } = Input;
+import { MInput } from "Components/BasicUI/index.jsx";
 
 const GroupUser = () => {
   const onFocus = () => {};
@@ -56,11 +54,12 @@ const GroupUser = () => {
         justify="space-between"
         style={{ padding: "10px 20px" }}
       >
-        <Search
+        <MInput
+          inputSearch
           placeholder="Tìm kiếm"
           className="HeaderSearch"
           style={{ width: "20%" }}
-        ></Search>
+        ></MInput>
         <ToolBar
           buttonConfig={[
             toolBarButtonTypes.add,

@@ -1,4 +1,4 @@
-import { Card, Col, Form, Row, Divider, Typography, Flex, Input } from "antd";
+import { Col, Form, Divider, Flex } from "antd";
 import * as React from "react";
 import DataGrid, {
   columnTypes,
@@ -10,9 +10,7 @@ import ToolBar, { toolBarButtonTypes } from "../../Components/ToolbarButton";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
 import Statistic from "../../Components/Statistic/index.js";
 import Content from "../../Components/Layout/Content.jsx";
-
-const { Title } = Typography;
-const { Search } = Input;
+import { MInput } from "Components/BasicUI/index.jsx";
 
 const DebtAnalysis = () => {
   const onFocus = () => {};
@@ -163,28 +161,6 @@ const DebtAnalysis = () => {
     },
   ]);
 
-  const LIST_STATISTIC = [
-    {
-      label: "Số lượng giao dịch (VSL)",
-      value: 24,
-    },
-    {
-      label: "Số lượng giao dịch (NH)",
-      value: 24,
-    },
-    {
-      label: "Số lượng giao dịch cân khớp",
-      value: 24,
-    },
-    {
-      label: "Số lượng giao dịch thừa cảng",
-      value: 24,
-    },
-    {
-      label: "Số lượng giao dịch thùa NH",
-      value: 24,
-    },
-  ];
   return (
     <Content
       type={"2-column"}
@@ -262,12 +238,12 @@ const DebtAnalysis = () => {
         justify="space-between"
         style={{ padding: "10px 20px" }}
       >
-        <Search
+        <MInput
+          inputSearch
           placeholder="Tìm kiếm"
           className="HeaderSearch"
           style={{ width: "24%" }}
-        ></Search>
-        <Typography>Số dòng: 0</Typography>
+        ></MInput>
       </Flex>
       <DataGrid
         ref={gridRef}

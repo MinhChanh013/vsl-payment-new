@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { FORMAT_DATETIME } from "../constants";
+import { FORMAT_DATE_TIME } from "constants";
 
 export const dataConverTable = ({ column, row }) => {
   const keyValue = column.key;
@@ -31,7 +31,7 @@ export const dataConverTable = ({ column, row }) => {
     case "NewGetIn":
     case "OldArrivalDeparture":
     case "NewArrivalDeparture":
-      dataConvert = rowValue ? dayjs(rowValue).format(FORMAT_DATETIME) : "";
+      dataConvert = rowValue ? dayjs(rowValue).format(FORMAT_DATE_TIME) : "";
       break;
     default:
       dataConvert = !!row[keyValue] ? `${row[keyValue]}` : "";
