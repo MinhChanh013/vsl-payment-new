@@ -1,6 +1,8 @@
 import { DatePicker } from "antd";
+import { FORMAT_DATE_TIME } from "constants";
 import dayjs from "dayjs";
-import { FORMAT_DATETIME } from "../../constants";
+
+
 
 export function renderCellEditDatePicker({ row, key, onRowChange }) {
   return (
@@ -12,7 +14,7 @@ export function renderCellEditDatePicker({ row, key, onRowChange }) {
       showTime={{
         format: "HH:mm:ss",
       }}
-      format={FORMAT_DATETIME}
+      format={FORMAT_DATE_TIME}
       value={dayjs(row[key])}
       onChange={(date, dateString) => {
         onRowChange({ ...row, [key]: dateString, isEdit: true }, true);

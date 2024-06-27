@@ -1,4 +1,4 @@
-import { Card, Col, Form, Row, Divider, Typography, Flex, Input } from "antd";
+import { Form, Flex } from "antd";
 import * as React from "react";
 import DataGrid, {
   columnTypes,
@@ -11,8 +11,7 @@ import ToolBar, {
 } from "../../Components/ToolbarButton/index.js";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
 import Content from "../../Components/Layout/Content.jsx";
-
-const { Search } = Input;
+import { MInput } from "Components/BasicUI/index.jsx";
 
 const User = () => {
   const onFocus = () => {};
@@ -87,11 +86,12 @@ const User = () => {
         justify="space-between"
         style={{ padding: "10px 20px" }}
       >
-        <Search
+        <MInput
+          inputSearch
           placeholder="Tìm kiếm"
           className="HeaderSearch"
           style={{ width: "20%" }}
-        ></Search>
+        ></MInput>
         <ToolBar
           buttonConfig={[
             toolBarButtonTypes.add,

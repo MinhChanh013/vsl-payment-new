@@ -21,7 +21,7 @@ const { Title } = Typography;
 const Header = ({ title }) => {
   const Avatar = "./avatar.jpg";
   const Acc = {
-    name: "VDNAM",
+    name: "THACHHD",
     role: "Admin",
   };
   const items = [
