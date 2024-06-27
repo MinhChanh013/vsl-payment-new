@@ -15,15 +15,15 @@ import DataGrid, {
   columnTypes,
   paginationTypes,
   selectionTypes,
-} from "../../Components/DataGrid/index.jsx";
+} from "../../components/DataGrid/index.jsx";
 import { UserOutlined } from "@ant-design/icons";
-import { Filter, filterType } from "../../Components/Fillter";
-import ToolBar, { toolBarButtonTypes } from "../../Components/ToolbarButton";
+import { Filter, filterType } from "../../components/Fillter";
+import ToolBar, { toolBarButtonTypes } from "../../components/ToolbarButton";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
 import TransactionOverviewItem from "./TransactionOverviewItem.jsx";
 import VirtualList from "rc-virtual-list";
 import { useOutletContext } from "react-router-dom";
-import Content from "../../Components/Layout/Content.jsx";
+import Content from "../../components/Layout/Content.jsx";
 import "chart.js/auto";
 // import {
 //   Chart as ChartJS,

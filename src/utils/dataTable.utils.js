@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { FORMAT_DATE_TIME } from "constants";
+import { FORMAT_DATE_TIME } from "./constants.utils";
 
 export const dataConverTable = ({ column, row }) => {
   const keyValue = column.key;

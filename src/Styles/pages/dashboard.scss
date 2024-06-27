@@ -1,0 +1,236 @@
+.dashboard {
+  padding-bottom: 12px !important;
+
+  .main-card .ant-card-body {
+    padding: 0px !important;
+    background-color: #ececec !important;
+  }
+
+  .dashboard-context {
+    border-radius: 6px !important;
+    padding: 12px !important;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px !important;
+    .ant-card-body {
+      background-color: #fff !important;
+
+      .dashboard-title {
+        font-size: 17px;
+        color: #114388;
+        font-weight: 600;
+      }
+
+      .dashboard__title-button {
+        font-size: 12px !important;
+        color: #878787;
+
+        &:hover {
+          background-color: unset !important;
+          color: #0065a1 !important;
+        }
+      }
+    }
+  }
+
+  .dashboard-container {
+    .dashboard__left {
+      .dashboard__left-static {
+        height: 260px;
+      }
+    }
+  }
+
+  .dashboard-context.static-left {
+    img {
+      background-color: #0a0a0a1a;
+      padding: 10px;
+      border-radius: 6px;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+    }
+    .total {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .description,
+    .parameters {
+      &.plus {
+        color: #8ac389;
+      }
+
+      &.minus {
+        color: #fe5e37;
+      }
+      font-size: 12px;
+    }
+
+    &.light {
+      background-color: #0065a1;
+      .ant-card-body {
+        background-color: #0065a1 !important;
+        .total,
+        .title,
+        .description {
+          color: #fff;
+        }
+      }
+    }
+
+    &.graphic {
+      img {
+        background-color: #8ac3891a !important;
+      }
+    }
+
+    &.user {
+      img {
+        background-color: #fe5e371a !important;
+      }
+    }
+  }
+
+  .dashboard__detail-list {
+    padding-right: 6px !important;
+
+    .ant-list-item-meta-avatar {
+      padding: 7px 10px;
+      border-radius: 5px;
+      background-color: #d2d2d240;
+      svg {
+        font-size: 16px !important;
+        color: #666666 !important;
+      }
+    }
+    .detail {
+      .money {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .date {
+        color: #9f9f9f;
+      }
+    }
+  }
+
+  .dashboard__detail-unit {
+    margin-top: 18px;
+    .ant-col .ant-card-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px !important;
+
+      .title,
+      .percent {
+        font-size: 12px;
+        color: #878787;
+      }
+      .total {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .button {
+        color: #9f9f9f;
+
+        &:hover {
+          background-color: unset !important;
+          color: #299d91 !important;
+        }
+      }
+    }
+  }
+
+  .dashboard__right .ant-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .avatar {
+      width: 70px;
+      height: 70px;
+    }
+    .title {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .divider {
+      margin: 12px 0 !important;
+      border-block-start: 1px solid #000 !important;
+    }
+
+    .name {
+      margin-top: 12px;
+      font-size: 18px;
+      color: #0f3f62;
+      font-weight: 600;
+    }
+    .info {
+      width: 100%;
+      margin-top: 12px;
+      .info-item {
+        padding: 0 32px !important;
+        .label {
+          color: #7c8db5;
+        }
+        .value {
+          color: #0f3f62;
+        }
+      }
+    }
+    .card-infor {
+      width: 100%;
+      height: 100%;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    }
+  }
+
+  section {
+    min-height: 235px;
+    .card .face.front {
+      .debit {
+        left: 20px;
+        top: 15px;
+      }
+      .bank {
+        right: 20px;
+        top: 5px;
+      }
+      .chip {
+        top: 55px;
+        left: 20px;
+      }
+
+      .number {
+        left: 20px;
+        bottom: 80px;
+      }
+
+      .valid {
+        bottom: 50px;
+        left: 20px;
+      }
+
+      .cardHolder {
+        bottom: 5px;
+        left: 20px;
+      }
+
+      &::before {
+        width: 50px;
+        height: 50px;
+        bottom: 30px;
+        right: 20px;
+      }
+      &::after {
+        width: 50px;
+        height: 50px;
+        bottom: 30px;
+        right: 50px;
+      }
+    }
+  }
+}

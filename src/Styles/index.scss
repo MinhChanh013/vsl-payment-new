@@ -1,0 +1,28 @@
+@import "global";
+@import "colors";
+@import "mixins";
+@import "variable";
+
+
+@import "./Dashboard/Dashboard.scss";
+@import "./Layout/Footer.scss";
+@import "./Layout/Header.scss";
+@import "./Layout/Sider.scss";
+@import "./Login/Login.scss";
+
+
+
+// components
+@import "components/global/header.scss";
+@import "./components/common/DataGrid.scss";
+@import "components/common/ToolBar.scss";
+@import "components/common/MBreadcrumb.scss";
+@import "components/common/VietNamMap.scss";
+@import "components/common/HeaderLogin.scss";
+@import "components/common/BasicUI.scss";
+
+// pages
+@import "pages/login.scss";
+@import "pages/lenhgiaodich.scss";
+@import "pages/developing.scss";
+@import "pages/dashboard.scss"

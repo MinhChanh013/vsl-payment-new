@@ -1,0 +1,25 @@
+@mixin circleAnimate($name, $from-radius, $to-radius, $delay) {
+  @keyframes #{$name} {
+    from {
+      r: #{$from-radius};
+    }
+    to {
+      r: #{$to-radius};
+    }
+  }
+
+  .#{$name} {
+    animation: $name 1s linear $delay infinite alternate;
+    cursor: pointer;
+
+    .active {
+      fill: #0088ccab;
+    }
+  }
+}
+
+.VietNamMap {
+  @include circleAnimate(circle-animate-1, 80, 100, 100ms);
+  @include circleAnimate(circle-animate-2, 50, 70, 200ms);
+  @include circleAnimate(circle-animate-3, 115, 125, 300ms);
+}

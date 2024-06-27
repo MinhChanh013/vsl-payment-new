@@ -1,0 +1,224 @@
+.auth-forms {
+  min-height: 485px;
+  // padding: 0px 8px;
+
+  @include responsive("mobile") {
+    min-height: fit-content;
+  }
+
+  .ant-tabs-nav .ant-tabs-nav-wrap .ant-tabs-nav-list {
+    width: 99%;
+    margin: auto;
+
+    .ant-tabs-tab {
+      flex: 1;
+      margin: 0 !important;
+      font-size: 18px;
+      padding: 8px 0;
+
+      @include responsive("mobile") {
+        font-size: 16px;
+      }
+
+      .ant-tabs-tab-btn {
+        color: $black;
+        margin: auto;
+      }
+
+      position: relative;
+
+      &-active {
+        .ant-tabs-tab-btn {
+          color: $primary_4;
+        }
+      }
+    }
+  }
+
+  .FormItemHalf {
+    width: 100%;
+    display: grid;
+    align-items: flex-end;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+
+    margin-bottom: 12px;
+
+    @include responsive("mobile") {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.login-main {
+  padding-top: 90px;
+  padding-inline: 12px;
+  margin-top: 0;
+}
+
+.content-left {
+  background-color: #fff;
+  padding-inline: 0;
+  height: fit-content;
+}
+
+.content-right {
+  @include responsive("mobile") {
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-top: -1px;
+  }
+}
+
+.image-map-vietnam {
+  @include responsive("mobile") {
+    display: none;
+  }
+}
+
+.main-content-login-tools {
+  display: none;
+
+  @include responsive("mobile") {
+    display: block;
+    background-color: $white;
+  }
+
+  .search-options {
+    padding: 0px;
+
+    .ant-segmented-group .ant-segmented-item {
+      flex: 1;
+    }
+  }
+}
+
+.content-bottom {
+  background-color: #fff;
+  padding: 12px;
+
+  &-footer-title {
+    text-align: center;
+    color: $primary_3;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+
+    @include responsive("mobile") {
+      font-size: 1rem;
+    }
+  }
+
+  .img-payment {
+    height: 37px;
+  }
+
+  .img-app {
+    height: 50px;
+
+    @include responsive("mobile") {
+      height: 35px;
+    }
+  }
+
+  .icon-connection {
+    width: 50px;
+    height: 50px;
+    fill: $primary_3;
+
+    @include responsive("mobile") {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .icon-hotline {
+    width: 50px;
+    height: 50px;
+    fill: #f97c1f;
+
+    @include responsive("mobile") {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+.login-form {
+  &-title {
+    color: $primary_2;
+    font-weight: 800;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 3px;
+
+    @include responsive("mobile") {
+      font-size: 28px;
+    }
+  }
+  &-caption {
+    color: $primary_3;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+
+    @include responsive("mobile") {
+      font-size: 14px;
+    }
+  }
+
+  &-remember {
+    display: flex !important;
+    flex-direction: row;
+    margin-top: 16px !important;
+    border-color: $subtitle !important;
+
+    &::before {
+      display: none;
+    }
+
+    .ant-divider-inner-text {
+      padding-inline-start: 0;
+    }
+
+    @include responsive("mobile") {
+      margin-top: 16px !important;
+    }
+  }
+
+  &-username {
+    margin-top: 32px;
+
+    @include responsive("mobile") {
+      margin-top: 16px;
+    }
+  }
+  &-password {
+    margin-top: 12px;
+  }
+
+  &-btn-submit {
+    margin-top: 12px;
+    background-color: #ffbf1a;
+    color: #fff;
+    width: 100%;
+    font-size: 18px;
+
+    @include responsive("mobile") {
+      margin-top: 0px;
+    }
+  }
+}
+
+.login-list-terminals {
+  .terminal-item {
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $primary_3;
+      color: $white;
+    }
+  }
+}

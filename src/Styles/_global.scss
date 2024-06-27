@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Roboto-thin", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  src: url(../assets/fonts/Roboto/Roboto-Thin.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-light", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  src: url(../assets/fonts/Roboto/Roboto-Light.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-regular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  src: url(../assets/fonts/Roboto/Roboto-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-medium", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  src: url(../assets/fonts/Roboto/Roboto-Medium.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-bold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  src: url(../assets/fonts/Roboto/Roboto-Bold.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-black", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  src: url(../assets/fonts/Roboto/Roboto-Black.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-thin-italic", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  src: url(../assets/fonts/Roboto/Roboto-ThinItalic.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-light-italic", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  src: url(../assets/fonts/Roboto/Roboto-LightItalic.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-regular-italic", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  src: url(../assets/fonts/Roboto/Roboto-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-medium-italic", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  src: url(../assets/fonts/Roboto/Roboto-MediumItalic.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-bold-italic", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  src: url(../assets/fonts/Roboto/Roboto-BoldItalic.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Roboto-black-italic", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  src: url(../assets/fonts/Roboto/Roboto-BlackItalic.ttf) format("ttf");
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto-regular", sans-serif !important;
+  padding: 0;
+  margin: 0;
+}
+
+.ant-modal-root :is(.ant-modal-mask, .ant-modal-wrap) {
+  z-index: 1002;
+}

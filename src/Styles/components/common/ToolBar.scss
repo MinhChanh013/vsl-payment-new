@@ -1,0 +1,25 @@
+.toolbar {
+  @include toolbar_color("&.load", $primary_3);
+  @include toolbar_color("&.send", $warning);
+  @include toolbar_color("&.cancel", $error);
+  @include toolbar_color("&.cancelgetin", $error);
+  @include toolbar_color("&.save", $success_1);
+  @include toolbar_color("&.delete", $error);
+  @include toolbar_color("&.delete_getout", $error);
+  @include toolbar_color("&.new_declare", $primary_3);
+  @include toolbar_color("&.export_excel", $primary_3);
+  @include toolbar_color("&.exportFile", $primary_3);
+  @include toolbar_color("&.exportExcelAndImage", $primary_3);
+  @include toolbar_color("&.importExcel", $primary_3);
+  @include toolbar_color("&.add", $primary_3);
+  @include toolbar_color("&.add_modal", $primary_3);
+  @include toolbar_color("&.import", $primary_3);
+  @include toolbar_color("&.refresh", $success_1);
+  @include toolbar_color("&.setting", $warning);
+  @include toolbar_color("&.complete", $success_1);
+  @include toolbar_color("&.confirm", $success_1);
+  @include toolbar_color("&.edit", $primary_3);
+  @include toolbar_color("&.permision_all", $success_1);
+  @include toolbar_color("&.remove_permision_all", $error);
+  @include toolbar_color("&.reset_permision", $success_1);
+}

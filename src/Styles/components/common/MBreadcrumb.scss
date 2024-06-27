@@ -1,0 +1,12 @@
+.MBreadcrumb {
+  ol,
+  ul,
+  li {
+    margin: 0 !important;
+    span {
+      color: $subtitle !important;
+      font-weight: 400 !important;
+      font-size: 16px !important;
+    }
+  }
+}

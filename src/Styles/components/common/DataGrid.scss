@@ -1,0 +1,135 @@
+.b-table {
+  width: 100%;
+  overflow: auto;
+  color: "red";
+  height: 400px;
+
+  .rdg-header-row .rdg-cell {
+    padding-block-start: unset !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #95bef796;
+  }
+
+  .rdg-row .rdg-cell {
+    padding: 0px !important;
+    .rdg-text-editor {
+      text-transform: uppercase !important;
+    }
+  }
+
+  &.none_uppercase {
+    .rdg-row .rdg-cell {
+      .rdg-text-editor,
+      .rdg-group-cell-content {
+        text-transform: none !important;
+      }
+    }
+  }
+
+  .rdg-group-row .rdg-cell {
+    padding: 0px 8px !important;
+  }
+}
+
+.b-table .rg-header-cell {
+  justify-content: center;
+  // background: rgba(134, 229, 255, 0.5) !important;
+  background: #e0ebfb !important;
+}
+
+.b-field {
+  width: 100%;
+}
+
+.b-vertical-divider {
+  height: 100%;
+  border-color: $border_color;
+}
+
+.b-horizontal-divider {
+  margin: 5px 0 5px;
+  border-color: #dededede;
+}
+
+.b-main__content {
+  padding-inline: $default_padding;
+  margin-top: 115px;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.b-check-cont-card {
+  margin-top: 90px;
+  padding-inline: $default_padding;
+  margin-left: 6px;
+  margin-right: 6px;
+  .ant-card-body {
+    padding: $default_padding;
+  }
+  .ant-card-head {
+    border-radius: 0px !important;
+    min-height: 0px !important;
+    padding: $default_padding 0 !important;
+  }
+  .ant-card-head-title {
+    text-align: center;
+    font-size: $subtitle;
+    font-weight: bold;
+    color: $primary_1;
+    white-space: break-spaces;
+    text-transform: uppercase;
+  }
+}
+
+.b-card {
+  .ant-card-body {
+    padding: $default_padding;
+  }
+  .ant-card-head {
+    height: 50px !important;
+    min-height: unset !important;
+    background-color: $primary_400;
+    border-radius: 10px;
+    @include text-2xl-medium();
+    font-size: 20px !important;
+  }
+
+  .ant-card-head-title {
+    text-align: center;
+    font-size: $subtitle;
+    font-weight: bold;
+    color: #fff !important;
+    white-space: break-spaces;
+    text-transform: uppercase;
+  }
+}
+
+.main-card {
+  min-height: calc(100vh - 111px);
+  border-radius: 0px;
+  height: 100%;
+
+  .ant-card-head {
+    background-color: $primary_6;
+    border-radius: 0px !important;
+    min-height: 0px !important;
+    padding: $default_padding 0 !important;
+  }
+
+  .ant-card-head-title {
+    text-align: center;
+    font-size: $subtitle;
+    font-weight: bold;
+    color: $primary_1;
+    white-space: break-spaces;
+    text-transform: uppercase;
+  }
+
+  .ant-card-body {
+    padding: $default_padding;
+    padding-top: 0px;
+    height: 100%;
+  }
+}

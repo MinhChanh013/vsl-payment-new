@@ -4,13 +4,13 @@ import DataGrid, {
   columnTypes,
   paginationTypes,
   selectionTypes,
-} from "../../Components/DataGrid/index.jsx";
-import { Filter, filterType } from "../../Components/Fillter";
-import ToolBar, { toolBarButtonTypes } from "../../Components/ToolbarButton";
+} from "../../components/DataGrid/index.jsx";
+import { Filter, filterType } from "../../components/Fillter";
+import ToolBar, { toolBarButtonTypes } from "../../components/ToolbarButton";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
-import Statistic from "../../Components/Statistic/index.js";
-import Content from "../../Components/Layout/Content.jsx";
-import { MInput } from "Components/BasicUI/index.jsx";
+import Statistic from "../../components/Statistic/index.js";
+import Content from "../../components/Layout/Content.jsx";
+import { MInput } from "components/BasicUI/index.jsx";
 
 const DebtAnalysis = () => {
   const onFocus = () => {};

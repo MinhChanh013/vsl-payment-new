@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 import FooterCompoent from "./Footer.jsx";
 import HeaderCompoent from "./Header.jsx";
 import SiderCompoent from "./Sider.jsx";
-import "../../Styles/Global.scss";
 const { Header, Footer, Sider, Content } = Layout;
 export default function DefaultLayout() {
   const [title, setTitle] = useState([]);

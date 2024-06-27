@@ -1,15 +1,15 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./Components/Layout/Layout.jsx";
-import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
-import SearchTransaction from "./Pages/Transaction/SearchTransaction.jsx";
-import DebtAnalysis from "./Pages/DebtAnalysis/DebtAnalysis.jsx";
-import OrderReconcile from "./Pages/OrderReconcile/OrderReconcile.jsx";
-import Report from "./Pages/Report/Report.jsx";
-import Login from "./Pages/Login/Login.jsx";
-import User from "./Pages/Account/User.jsx";
-import GroupUser from "./Pages/Account/GroupUser.jsx";
-import Permission from "./Pages/Account/Permission.jsx";
+import Layout from "../components/Layout/Layout.jsx";
+import Dashboard from "../pages/Dashboard/Dashboard.jsx";
+import SearchTransaction from "../pages/Transaction/SearchTransaction.jsx";
+import DebtAnalysis from "../pages/DebtAnalysis/DebtAnalysis.jsx";
+import OrderReconcile from "../pages/OrderReconcile/OrderReconcile.jsx";
+import Report from "../pages/Report/Report.jsx";
+import Login from "../pages/Login/Login.jsx";
+import User from "../pages/Account/User.jsx";
+import GroupUser from "../pages/Account/GroupUser.jsx";
+import Permission from "../pages/Account/Permission.jsx";
 const router = createBrowserRouter([
   {
     path: "/",

@@ -4,14 +4,14 @@ import DataGrid, {
   columnTypes,
   paginationTypes,
   selectionTypes,
-} from "../../Components/DataGrid/index.jsx";
-import { Filter, filterType } from "../../Components/Fillter/index.jsx";
+} from "../../components/DataGrid/index.jsx";
+import { Filter, filterType } from "../../components/Fillter/index.jsx";
 import ToolBar, {
   toolBarButtonTypes,
-} from "../../Components/ToolbarButton/index.js";
+} from "../../components/ToolbarButton/index.js";
 import { basicRenderColumns } from "../../utils/dataTable.utils.js";
-import Content from "../../Components/Layout/Content.jsx";
-import { MInput } from "Components/BasicUI/index.jsx";
+import Content from "../../components/Layout/Content.jsx";
+import { MInput } from "components/BasicUI/index.jsx";
 
 const User = () => {
   const onFocus = () => {};

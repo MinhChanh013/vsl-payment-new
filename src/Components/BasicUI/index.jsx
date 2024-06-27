@@ -13,7 +13,7 @@ import {
   Tooltip,
   Typography,
 } from "antd";
-import { FORMAT_DATE } from "constants";
+import { FORMAT_DATE } from "../../utils/constants.utils";
 import dayjs from "dayjs";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 
