@@ -1,16 +1,15 @@
 import { Form, Flex } from "antd";
 import * as React from "react";
+
+import { basicRenderColumns } from "../../utils/dataTable.utils.js";
+import ToolBar, { toolBarButtonTypes } from "Components/ToolBar/index.jsx";
 import DataGrid, {
   columnTypes,
   paginationTypes,
   selectionTypes,
-} from "../../components/DataGrid/index.jsx";
-import ToolBar, {
-  toolBarButtonTypes,
-} from "../../components/ToolbarButton/index.js";
-import { basicRenderColumns } from "../../utils/dataTable.utils.js";
-import Content from "../../components/Layout/Content.jsx";
-import { MInput } from "components/BasicUI/index.jsx";
+} from "Components/DataGrid/index.jsx";
+import Content from "Components/Layout/Content.jsx";
+import { MInput } from "Components/BasicUI/index.jsx";
 
 const GroupUser = () => {
   const onFocus = () => {};

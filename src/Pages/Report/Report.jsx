@@ -1,16 +1,16 @@
-import { Card, Col, Form, Row, Divider, Typography, Flex, Input } from "antd";
-import dayjs from "dayjs";
+import { Col, Divider, Flex, Form, Input } from "antd";
 import * as React from "react";
+
+import ToolBar, { toolBarButtonTypes } from "Components/ToolBar/index.jsx";
+import Statistic from "Components/Statistic/index.js";
+import { basicRenderColumns } from "utils/dataTable.utils.js";
+import Content from "Components/Layout/Content.jsx";
+import { Filter, filterType } from "Components/Fillter/index.jsx";
 import DataGrid, {
   columnTypes,
   paginationTypes,
   selectionTypes,
-} from "../../components/DataGrid/index.jsx";
-import { Filter, filterType } from "../../components/Fillter";
-import ToolBar, { toolBarButtonTypes } from "../../components/ToolbarButton";
-import { basicRenderColumns } from "../../utils/dataTable.utils.js";
-import Statistic from "../../components/Statistic/index.js";
-import Content from "../../components/Layout/Content.jsx";
+} from "Components/DataGrid";
 
 const { Search } = Input;
 
@@ -207,8 +207,8 @@ const Report = () => {
           <Divider
             style={{
               margin: "0px",
-                      color: "var(--red-color)",
-                      border: "var(--red-color)",
+              color: "var(--red-color)",
+              border: "var(--red-color)",
             }}
           >
             Lọc dữ liệu
